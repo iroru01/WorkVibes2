@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PrincipalController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+/*crear usuario*/
+Route::post('/usuarios', [PrincipalController::class, 'store'])->name('usuarios.store');
 
+/*index*/
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,9 +35,7 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/registro', function () {
-    return view('registro');
-});
+
 
 Route::get('/lista', function () {
     return view('lista_emociones');

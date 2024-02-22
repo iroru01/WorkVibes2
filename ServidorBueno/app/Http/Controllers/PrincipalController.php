@@ -34,7 +34,23 @@ class PrincipalController extends Controller
      */
     public function store(Request $request) 
     {
-        //
+        // Validar los datos del formulario
+        $request->validate([
+            'nombre_user' => 'required|string|max:255',
+            'dni' => 'required|string|max:255',
+            'nombre' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'telefono' => 'required|string|max:255',
+            'direccion' => 'required|string|max:255',
+            'contraseña' => 'required|string|max:255',
+            'puesto' => 'required|string|max:255',
+            'incorporacion' => 'required|date',
+            'id_departamento' => 'required|integer',
+            'id_evento' => 'nullable|integer',
+            'estado' => 'required|string|max:255',
+        ]);
+
+        
         
     }
 

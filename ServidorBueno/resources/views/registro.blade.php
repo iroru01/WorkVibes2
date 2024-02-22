@@ -34,7 +34,8 @@
     <div class="row align-center">
         <div class="col-12 col-md-5 offset-md-2">
             <h5>Introduce tus datos personales</h5>
-            <form>
+            <form method="POST" action="{{ route('usuarios.store') }}">
+                @csrf
                 <input type="text" placeholder="Nombre de usuario"value="" class="form-control col-8" id="nombre_usuario" name="nombre_usuario" required>
                 <div class="error-message" id="nombre_usuario-error"></div>
                 <input type="text" placeholder="Nombre"value=""  class="form-control col-8" id="nombre" name="nombre" required>
