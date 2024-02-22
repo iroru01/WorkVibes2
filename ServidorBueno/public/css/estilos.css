@@ -1,0 +1,400 @@
+/*CUERPO*/
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container-fluid {
+ padding: 0px 0px 0px 80px;
+}
+
+input{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+#padding_container{
+    padding-top: 150px;
+}
+.inicio_Ses_Form{
+    padding-top: 30px;
+}
+
+#section_encargado{
+    margin-top: 50px;
+}
+/*-- MENU --*/
+body {
+    font-size: 16px;
+    font-family: 'Raleway', arial, sans-serif;
+  }
+  
+h1 {
+  text-align: center;
+  font-size: 6em;
+  font-weight: 300;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#mainnav ul {
+    padding-left: 10px;
+    position: fixed;
+    bottom: 0;
+    font-weight: 400;
+    z-index: 100;
+    min-width: 20em;
+}
+#mainnav li {
+  list-style: none;
+  margin: .5em 0 0;
+  font-size: 1.75em;
+}
+#mainnav li:hover span {
+  opacity: 1;
+  transition: 0.25s;
+}
+#mainnav li.invisible {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s;
+}
+#mainnav li.animate {
+  opacity: 0;
+  animation-duration: 0.25s;
+  animation-name: easeOutBounce;
+  animation-fill-mode: forwards;
+}
+#mainnav li.animate:nth-child(4) {
+  animation-delay: 0s;
+}
+#mainnav li.animate:nth-child(4) {
+  animation-delay: 0.15s;
+}
+#mainnav li.animate:nth-child(4) {
+  animation-delay: 0.3s;
+}
+#mainnav li.animate:nth-child(4) {
+  animation-delay: 0.45s;
+}
+#mainnav a {
+  text-decoration: none;
+  color: #007bff;
+}
+#mainnav i {
+  border: 2px solid #007bff;
+  padding: .5em;
+  border-radius: 50%;
+}
+#mainnav span {
+  color: #fff;
+  padding: .35em;
+  margin-left: .5em;
+  border-radius: .2em;
+  font-size: .75em;
+  transition: .3s;
+  background: #007bff;
+  opacity: 0;
+  position: relative;
+}
+#mainnav span:before {
+  content: '';
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  left: -.4em;
+  top: 50%;
+  margin-top: -.5em;
+  border-style: solid;
+  border-width: .5em .5em .5em 0;
+  border-color:#007bff;
+}
+  
+/* Imitates jQuery UI's ease-out-bounce animation effect */
+@keyframes easeOutBounce {
+  0% {
+    font-size: 0;
+  }
+  37% {
+    font-size: 1.75em;
+  }
+  55% {
+    font-size: 1.3125em;
+  }
+  73% {
+    font-size: 1.75em;
+  }
+  82% {
+    font-size: 1.6275em;
+  }
+  91% {
+    font-size: 1.75em;
+  }
+  96% {
+    font-size: 1.715em;
+  }
+  100% {
+    font-size: 1.75em;
+    opacity: 1;
+  }
+}
+  /*FIN ESTILOS MENU */
+/*CAJAS FORMULARIO*/
+#fecha{
+    padding: 10px;
+}
+/*TEXTOS*/
+h5{
+    color: #007bff;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+h4{
+    font-size: 25px;
+    color: #007bff
+}
+h3{
+    padding-left: 60px;
+    color: #007bff
+}
+.span_text{
+    margin-right: 50px;
+}
+.text-area{
+    height:100px;
+    width: 400px;
+    border: 2px solid rgba(128, 128, 128, 0.684);
+    border-radius: 5px;
+}
+
+/*IMG*/
+.img_logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 450px; /* Ajusta la altura máxima según lo necesites */
+}
+.img_lista_emociones{
+  width: 40%;
+  margin-left: 33px;
+}
+.img_registro{
+  width: 50%;
+}
+.img_tickAzul{
+width: 40%;
+}
+#img_editar{
+    width: 55%;
+}
+#img_aniadir{
+    width: 50%;
+}
+#img_eliminar{
+    width: 60%;
+}
+
+#emoji_emociones{
+    width: 10%;
+}
+.logo_seccion{
+    width: 25%;
+}
+.emojis{
+width: 60%;
+}
+/* Estilos para los emojis */
+.btn_emojis {
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s ease;
+}
+.btn_emojis.active {
+  border: 2px solid #007bff; /* Cambia el borde cuando está activo */
+}
+.btn_emojis:hover {
+    transform: scale(1.3);
+}
+/*btn editar emocion*/
+.btns_emociones {
+    transition: transform 0.3s ease;
+}
+.btns_emociones:hover {
+    transform: scale(1.3);
+}
+
+/*BOTONES*/
+/* BOTÓN ENTRAR */
+#btn_entrar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-image: linear-gradient(90deg, #007bff, rgb(219, 26, 219));
+    background-size: 200% 200%;
+    transition: background-position 0.3s ease;
+}
+
+#btn_entrar:hover {
+    background-position: 100% 100%;
+    text-decoration: none;
+}
+
+/* BOTÓN REGISTRAR */
+#btn_registrar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-image: radial-gradient(circle, #007bff, rgb(219, 26, 219));
+    background-size: 200% 200%;
+    transition: background-position 0.3s ease;
+}
+
+#btn_registrar:hover {
+    background-position: 100% 100%;
+    text-decoration: none;
+}
+
+@keyframes gradientChange {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+/*BOTON SIGUIENTE*/
+#btn_next {
+  text-decoration: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, #007bff, rgb(219, 26, 219));
+  background-size: 200% 200%;
+  transition: background-position 0.3s ease;
+}
+
+#btn_next:hover {
+  text-decoration: none;
+  background-position: 100% 100%;
+}
+
+.btn_emojis{
+    border: none;
+    border-radius: 5px;
+}
+.boton_anadir {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+/* Estilos para la barra de usuario */
+.barra_usuario {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 22px;
+  padding: 10px;
+  text-align: left;
+}
+
+/*TABLA*/
+th{
+    font-size: 22px;
+    text-align: center;
+    padding: 4px 10px 3px 10px;
+    border-bottom: 2px solid black;
+}
+td{
+    padding: 8px;
+}
+#stilo_tabla{
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+/* Estilo para las cajas de texto cuando hay un error */
+input.error {
+    border: 1px solid red;
+}
+
+/* Estilo para los mensajes de error */
+.error-msg {
+    display: block;
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+/*BOTON*/
+@layer utilities {
+    @keyframes gradientChange {
+        0% {
+            background-position: 0%
+        }
+
+        50% {
+            background-position: 100%
+        }
+
+        100% {
+            background-position: 0%
+        }
+    }
+
+    .gradient {
+        background: linear-gradient(90deg, blue,rgb(219, 26, 219));
+        background-size: 200% 200%;
+    }
+
+    .element-to-rotate {
+        animation: gradientChange 3s ease infinite;
+    }
+}
+/* Estilo para los mensajes de error */
+.error-message {
+    display: block;
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.input-error {
+    border: 1px solid red;
+}
