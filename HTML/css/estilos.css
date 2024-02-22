@@ -40,9 +40,7 @@ h1 {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-nav{
-    padding: 10px;
-}
+
 #mainnav ul {
     padding-left: 10px;
     position: fixed;
