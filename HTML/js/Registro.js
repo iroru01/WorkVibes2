@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const contraseñaInput = document.getElementById('contraseña');
     const confirmarContraseñaInput = document.getElementById('confirma_contraseña');
     const fechaInput = document.getElementById('fecha');
-    const fechaError = document.getElementById('fecha-error'); // Cambio aquí
     const jefeInputs = document.querySelectorAll('input[name="jefe"]');
 
     const btnNext = document.getElementById('btn_next'); 
@@ -133,19 +132,10 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('jefe-error').textContent = "";
         }
 
-        // Validar fecha
-        let today = new Date(); // Obtener la fecha actual
-        let selectedDate = new Date(fechaValue); // Convertir la fecha seleccionada por el usuario a objeto Date
-
-        if (!fechaValue.trim()) { // Verificar si la fecha está en blanco
-            fechaInput.classList.add('error');
-            fechaError.textContent = "Debes seleccionar una fecha es obligatoria"; // Cambio aquí
-        } else if (selectedDate > today) { 
-            fechaInput.classList.add('error'); 
-            fechaError.textContent = "La fecha no puede ser posterior a la fecha actual"; // Cambio aquí
+        if (!fechaValue) {
+            document.getElementById('fecha-error').textContent = "Debes seleccionar una fecha de incorporación";
         } else {
-            fechaInput.classList.remove('error'); // Quitar la clase de estilo para el borde rojo
-            fechaError.textContent = ""; // Cambio aquí
+            document.getElementById('fecha-error').textContent = "";
         }
 
         if (!document.querySelectorAll('.error').length) {

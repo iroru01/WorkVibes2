@@ -6,7 +6,7 @@
     justify-content: center;
 }
 .container-fluid {
- padding: 60px;
+ padding: 0px 0px 0px 80px;
 }
 
 input{
@@ -25,126 +25,126 @@ input{
 }
 /*-- MENU --*/
 body {
-  font-size: 16px;
-  font-family: 'Raleway', arial, sans-serif;
-}
-
-h1{
-text-align: center;
-font-size: 6em;
-font-weight: 300;
-position: absolute;
-margin: 0;
-top: 50%;
-left: 50%;
--webkit-transform: translate(-50%, -50%);
-transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-family: 'Raleway', arial, sans-serif;
+  }
+  
+h1 {
+  text-align: center;
+  font-size: 6em;
+  font-weight: 300;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 nav{
-  padding: 10px;
+    padding: 10px;
 }
 #mainnav ul {
-  padding-left: 10px;
-  position: fixed;
-  bottom: 0;
-  font-weight: 400;
-  z-index: 100;
-  min-width: 20em;
+    padding-left: 10px;
+    position: fixed;
+    bottom: 0;
+    font-weight: 400;
+    z-index: 100;
+    min-width: 20em;
 }
 #mainnav li {
-list-style: none;
-margin: .5em 0 0;
-font-size: 1.75em;
+  list-style: none;
+  margin: .5em 0 0;
+  font-size: 1.75em;
 }
 #mainnav li:hover span {
-opacity: 1;
-transition: 0.25s;
+  opacity: 1;
+  transition: 0.25s;
 }
 #mainnav li.invisible {
-opacity: 0;
-visibility: hidden;
-transition: all 0.25s;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s;
 }
 #mainnav li.animate {
-opacity: 0;
-animation-duration: 0.25s;
-animation-name: easeOutBounce;
-animation-fill-mode: forwards;
+  opacity: 0;
+  animation-duration: 0.25s;
+  animation-name: easeOutBounce;
+  animation-fill-mode: forwards;
 }
 #mainnav li.animate:nth-child(4) {
-animation-delay: 0s;
+  animation-delay: 0s;
 }
 #mainnav li.animate:nth-child(4) {
-animation-delay: 0.15s;
+  animation-delay: 0.15s;
 }
 #mainnav li.animate:nth-child(4) {
-animation-delay: 0.3s;
+  animation-delay: 0.3s;
 }
 #mainnav li.animate:nth-child(4) {
-animation-delay: 0.45s;
+  animation-delay: 0.45s;
 }
 #mainnav a {
-text-decoration: none;
-color: #007bff;
+  text-decoration: none;
+  color: #007bff;
 }
 #mainnav i {
-border: 2px solid #007bff;
-padding: .5em;
-border-radius: 50%;
+  border: 2px solid #007bff;
+  padding: .5em;
+  border-radius: 50%;
 }
 #mainnav span {
-color: #fff;
-padding: .35em;
-margin-left: .5em;
-border-radius: .2em;
-font-size: .75em;
-transition: .3s;
-background: #007bff;
-opacity: 0;
-position: relative;
+  color: #fff;
+  padding: .35em;
+  margin-left: .5em;
+  border-radius: .2em;
+  font-size: .75em;
+  transition: .3s;
+  background: #007bff;
+  opacity: 0;
+  position: relative;
 }
 #mainnav span:before {
-content: '';
-width: 0px;
-height: 0px;
-position: absolute;
-left: -.4em;
-top: 50%;
-margin-top: -.5em;
-border-style: solid;
-border-width: .5em .5em .5em 0;
-border-color:#007bff;
+  content: '';
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  left: -.4em;
+  top: 50%;
+  margin-top: -.5em;
+  border-style: solid;
+  border-width: .5em .5em .5em 0;
+  border-color:#007bff;
 }
-
+  
 /* Imitates jQuery UI's ease-out-bounce animation effect */
 @keyframes easeOutBounce {
-0% {
-  font-size: 0;
+  0% {
+    font-size: 0;
+  }
+  37% {
+    font-size: 1.75em;
+  }
+  55% {
+    font-size: 1.3125em;
+  }
+  73% {
+    font-size: 1.75em;
+  }
+  82% {
+    font-size: 1.6275em;
+  }
+  91% {
+    font-size: 1.75em;
+  }
+  96% {
+    font-size: 1.715em;
+  }
+  100% {
+    font-size: 1.75em;
+    opacity: 1;
+  }
 }
-37% {
-  font-size: 1.75em;
-}
-55% {
-  font-size: 1.3125em;
-}
-73% {
-  font-size: 1.75em;
-}
-82% {
-  font-size: 1.6275em;
-}
-91% {
-  font-size: 1.75em;
-}
-96% {
-  font-size: 1.715em;
-}
-100% {
-  font-size: 1.75em;
-  opacity: 1;
-}
-}
-/*FIN ESTILOS MENU */
+  /*FIN ESTILOS MENU */
 /*CAJAS FORMULARIO*/
 #fecha{
     padding: 10px;
@@ -179,10 +179,9 @@ h3{
     height: auto;
     max-height: 450px; /* Ajusta la altura máxima según lo necesites */
 }
-.logo_barra{
-  width: 2%; /* Ajusta el tamaño del logo según sea necesario */
-  height: auto;
-  margin-right: 10px; /* Ajusta el margen derecho según sea necesario */
+.img_lista_emociones{
+  width: 40%;
+  margin-left: 33px;
 }
 .img_registro{
   width: 50%;
@@ -199,10 +198,7 @@ width: 40%;
 #img_eliminar{
     width: 60%;
 }
-.img_lista_emociones{
-  width: 30%;
-  margin-left: 33px;
-}
+
 #emoji_emociones{
     width: 10%;
 }
@@ -211,10 +207,7 @@ width: 40%;
 }
 .emojis{
 width: 60%;
-padding: 10px;
-border-radius: 5px;
 }
-
 /* Estilos para los emojis */
 .btn_emojis {
   border: none;
@@ -273,19 +266,12 @@ border-radius: 5px;
   display: inline-block;
   transition: background-color 0.3s ease;
 }
-
 /* Estilos para la barra de usuario */
 .barra_usuario {
-  position: fixed; /* Cambiar posición a fija */
-  top: 0; /* Alinear la barra de usuario en la parte superior */
-  width: 100%;
   background-color: #007bff;
-  text-decoration: underline;
   color: #fff;
-  font-size: 20px;
   padding: 10px;
-  text-align: left;
-  z-index: 9999; /* Asegurar que la barra de usuario esté por encima del resto del contenido */
+  text-align: right;
 }
 
 /*TABLA*/
@@ -321,6 +307,35 @@ input.error {
     font-size: 12px;
 }
 
+/*BOTON*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    @keyframes gradientChange {
+        0% {
+            background-position: 0%
+        }
+
+        50% {
+            background-position: 100%
+        }
+
+        100% {
+            background-position: 0%
+        }
+    }
+
+    .gradient {
+        background: linear-gradient(90deg, blue, rgb(219, 26, 219),blue);
+        background-size: 200% 200%;
+    }
+
+    .element-to-rotate {
+        animation: gradientChange 4s ease infinite;
+    }
+}
 /* Estilo para los mensajes de error */
 .error-message {
     display: block;
@@ -332,7 +347,3 @@ input.error {
 .input-error {
     border: 1px solid red;
 }
-
-
-
-

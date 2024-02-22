@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let nombreValue = nombreInput.value;
         let contraseñaValue = contraseñaInput.value;
-        let nombreRegex = /^[a-zA-Z0-9]{1,20}$/; 
+        let nombreRegex = /^(?=.*\d).{1,20}$/; 
         let contraseñaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,16}$/;
 
         if (!nombreValue.trim()) {
