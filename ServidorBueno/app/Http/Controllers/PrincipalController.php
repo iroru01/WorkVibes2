@@ -23,14 +23,19 @@ class PrincipalController extends Controller
     public function create()
     {
         //
+        $user= new usuario();
+        return View('noticias.save',[
+        'noticia'   =>$noticia
+    ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         //
+        
     }
 
     /**
