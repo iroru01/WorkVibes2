@@ -3,9 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
 
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,9 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
-Route::resource('usuario',PrincipalController::class); //si da fallo puede ser esto 
-=======
 Route::get('/index', function () {
     return view('index');
 });
@@ -48,4 +42,3 @@ Route::get('/emociones', function () {
 Route::get('/fin', function () {
     return view('fin');
 });
->>>>>>> 131912e4d98b151be7e5855c094edfb44bbc1278

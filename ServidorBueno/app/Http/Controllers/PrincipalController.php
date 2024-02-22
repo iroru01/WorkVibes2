@@ -23,10 +23,7 @@ class PrincipalController extends Controller
     public function create()
     {
         //
-        $user= new usuario();
-        return View('noticias.save',[
-        'noticia'   =>$noticia
-    ]);
+        
     }
 
     /**
@@ -65,24 +62,48 @@ class PrincipalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+   
     public function edit(string $id)
     {
-        //
+        $evento = Evento::find($id);
+        return View('insertar_emocion', [
+            'evento' => $evento
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.
      */
+
+
     public function update(Request $request, string $id)
     {
-        //
+        $evento = Evento::find($id);
+        $evento->nombre_evento = $request->nombre_evento;
+        $evento->fecha = $request->fecha;
+        $evento->emocion = $request->emocion;
+        $evento->save();
+
+
+        return Redirect::to('evento')->with('notice', 'El evento ha sido modificado correctamente.');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
+
+
     public function destroy(string $id)
     {
-        //
+    $evento = Evento::findOrFail($id);
+    $evento->delete();
+
+
+    return redirect()->route('lista_emociones')->with('notice', 'El evento ha sido eliminado correctamente.')->with('noticeType', 'success');
     }
 }
+
+
+
