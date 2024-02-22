@@ -231,24 +231,80 @@ width: 60%;
 }
 
 /*BOTONES*/
+/* BOTÓN ENTRAR */
 #btn_entrar {
-    margin-top: 8px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#btn_next {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
+    text-decoration: none;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    background-image: linear-gradient(90deg, #007bff, rgb(219, 26, 219));
+    background-size: 200% 200%;
+    transition: background-position 0.3s ease;
 }
+
+#btn_entrar:hover {
+    background-position: 100% 100%;
+    text-decoration: none;
+}
+
+/* BOTÓN REGISTRAR */
+#btn_registrar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-image: radial-gradient(circle, #007bff, rgb(219, 26, 219));
+    background-size: 200% 200%;
+    transition: background-position 0.3s ease;
+}
+
+#btn_registrar:hover {
+    background-position: 100% 100%;
+    text-decoration: none;
+}
+
+@keyframes gradientChange {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+/*BOTON SIGUIENTE*/
+#btn_next {
+  text-decoration: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, #007bff, rgb(219, 26, 219));
+  background-size: 200% 200%;
+  transition: background-position 0.3s ease;
+}
+
+#btn_next:hover {
+  text-decoration: none;
+  background-position: 100% 100%;
+}
+
 .btn_emojis{
     border: none;
     border-radius: 5px;
@@ -270,8 +326,9 @@ width: 60%;
 .barra_usuario {
   background-color: #007bff;
   color: #fff;
+  font-size: 22px;
   padding: 10px;
-  text-align: right;
+  text-align: left;
 }
 
 /*TABLA*/
@@ -308,10 +365,6 @@ input.error {
 }
 
 /*BOTON*/
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer utilities {
     @keyframes gradientChange {
         0% {
@@ -328,12 +381,12 @@ input.error {
     }
 
     .gradient {
-        background: linear-gradient(90deg, blue, rgb(219, 26, 219),blue);
+        background: linear-gradient(90deg, blue,rgb(219, 26, 219));
         background-size: 200% 200%;
     }
 
     .element-to-rotate {
-        animation: gradientChange 4s ease infinite;
+        animation: gradientChange 3s ease infinite;
     }
 }
 /* Estilo para los mensajes de error */
