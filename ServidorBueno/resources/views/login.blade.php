@@ -35,11 +35,11 @@
                     <input type="password" placeholder="Contraseña" class="form-control col-12 col-md-8"  id="contraseña" name="contraseña" required>
                     <span class="error-msg" id="contraseña-error"></span>
                 </div>
-                <a href="lista_emociones.html">
+                <a href="lista_emociones">
                     <button type="button" class="form-control col-12 col-md-8" id="btn_entrar" name="button">Iniciar Sesión</button>
                 </a>
                 
-                <a href="registro.html">
+                <a href="{{ route('crear.usuario') }}">
                     <button type="button" class="form-control col-12 col-md-8" id="btn_registrar" name="button" required>Registrarse</button>
                 </a>
                 

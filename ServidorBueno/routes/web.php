@@ -14,7 +14,12 @@ use App\Http\Controllers\PrincipalController;
 |
 */
 /*crear usuario*/
-Route::post('/usuarios', [PrincipalController::class, 'store'])->name('usuarios.store');
+Route::post('/usuarios/store', [PrincipalController::class, 'store'])->name('usuarios.store');
+Route::get('/register', [PrincipalController::class, 'create'])->name('usuarios.create');
+Route::get('/lista/emociones', [PrincipalController::class, 'listaEmociones'])->name('lista.emociones');
+
+Route::get('/crear-usuario', [PrincipalController::class, 'formularioCrear'])->name('crear.usuario');
+Route::post('/guardar-usuario', [PrincipalController::class, 'guardar'])->name('guardar.usuario');
 
 /*index*/
 Route::get('/', function () {
@@ -27,6 +32,10 @@ Route::get('/index', function () {
 
 Route::get('/login', function () {
     return view('login');
+});
+
+Route::get('/registro', function () {
+    return view('registro');
 });
 
 
