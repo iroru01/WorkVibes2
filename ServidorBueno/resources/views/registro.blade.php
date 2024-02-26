@@ -33,6 +33,7 @@
 <div class="container-fluid">
     <div class="row align-center">
         <div class="col-12 col-md-5 offset-md-2">
+<<<<<<< HEAD
         <h5>Introduce tus datos personales</h5>
         
         <form id="form1" method="POST" action="{{ route('guardar.usuario') }}">
@@ -50,6 +51,60 @@
             <input type="text" name="direccion" class="form-control col-8" id="direccion" placeholder="Dirección:" required>
 
             <input type="password" name="contraseña" class="form-control col-8" id="contraseña" placeholder="Contraseña:" required>
+=======
+            <h5>Introduce tus datos personales</h5>
+            <form method="POST" action="{{ route('registro.store') }}">
+                @csrf
+                <input type="text" placeholder="Nombre de usuario"value="" class="form-control col-8" id="nombre_usuario" name="nombre_usuario" required>
+                <div class="error-message" id="nombre_usuario-error"></div>
+                <input type="text" placeholder="Nombre"value=""  class="form-control col-8" id="nombre" name="nombre" required>
+                <div class="error-message" id="nombre-error"></div>
+                <input type="text" placeholder="Apellido" value="" class="form-control col-8" id="apellido" name="apellido">
+                <div class="error-message" id="apellido-error"></div>
+                <input type="text" placeholder="DNI" value="" class="form-control col-8" id="dni" name="dni">
+                <div class="error-message" id="dni-error"></div>
+                <input type="text" placeholder="Teléfono" value="" class="form-control col-8" id="telefono" name="telefono">
+                <div class="error-message" id="telefono-error"></div>
+                <input type="text" placeholder="Dirección" value="" class="form-control col-8" id="direccion" name="direccion">
+                <div class="error-message" id="direccion-error"></div>
+                <input type="password" placeholder="Contraseña" value="" class="form-control col-8" id="contraseña" name="contraseña">
+                <div class="error-message" id="contraseña-error"></div>
+                <input type="password" placeholder="Confirmar contraseña" class="form-control col-8" id="confirma_contraseña" name="confirma_contraseña">
+                <div class="error-message" id="confirma_contraseña-error"></div>
+
+<<<<<<< HEAD
+                    </div>
+                    <div class="row" id="section_encargado">
+                        <div class="col-12">
+                            <h4>¿Eres Jefe o Empleado</h4>
+                            <div class="row justify-content-center">
+                                <div class="col-auto mr-2">
+                                    <input type="radio" class="btn_radio" name="jefe" value="puesto"><span class="span_text">Jefe</span>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="radio" class="btn_radio" name="empleado" value="puesto"><span class="span_text">Empleado</span>
+                                </div>
+                            </div>
+                            <div class="error-message" id="jefe-error"></div>
+                            <br>
+                            <h4>¿Cuándo te incorporaste a la empresa?</h4>
+                            <div class="row justify-content-center">
+                                <input type="date" name="fecha" class="form-control col-8" id="fecha">
+                                <div class="error-message" id="fecha-error"></div>
+                            </div>
+                            <div class="row justify-content-center"> <!-- Añadido para centrar el botón -->
+                                <button type="submit" class="form-control col-6" id="btn_next" name="button" required>Siguiente</button>
+                            </div>
+                            
+                        </div>
+                </form>
+=======
+                <!-- QUITAR HREF -->
+                <div class="row justify-content-center"> <!-- Añadido para centrar el botón -->
+                    <button type="submit" class="form-control col-6" id="btn_next" name="button" required>Siguiente</button>
+                </div>
+            </form>
+>>>>>>> 882ca7bec9c29b834b27d53d7caae62909660846
         </div>
         <div class="row" id="section_encargado">
             <div class="col-12">
@@ -65,6 +120,7 @@
         
                 <button id="btn_next" type="submit" class="form-control col-8">Guardar Usuario</button>
             </div>
+>>>>>>> 8e6934ba5bcc17968f262491a4291946d2b0436c
         </div>
 
     </div>

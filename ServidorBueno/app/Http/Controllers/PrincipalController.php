@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
+use App\Models\Usuario; 
+=======
 use App\Models\Usuario;
+>>>>>>> 8e6934ba5bcc17968f262491a4291946d2b0436c
 
 
 class PrincipalController extends Controller
@@ -16,22 +20,70 @@ class PrincipalController extends Controller
     
     public function index()
     {
-        //
+        return view('index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
+<<<<<<< HEAD
+            // Crear un nuevo usuario con los datos proporcionados
+        $usuario = new Usuario();
+        $usuario->nombre_user = $request->nombre_usuario;
+        $usuario->dni = $request->dni;
+        $usuario->nombre = $request->nombre;
+
+        'nombre_user' => $request->nombre_user,
+        'dni' => $request->dni,
+        'nombre' => $request->nombre,
+        'apellidos' => $request->apellidos,
+        'telefono' => $request->telefono,
+        'direccion' => $request->direccion,
+        'contraseña' => $request->contraseña,
+        'puesto' => $request->puesto,
+        'incorporacion' => $request->incorporacion,
+        'id_departamento' => $request->id_departamento,
+        'id_evento' => $request->id_evento,
+        'estado' => $request->estado,
+
+
+    // Después de crear el usuario, redirigir al usuario a la página de inicio
+    return redirect('/login');
+=======
         
         // Opcional: redirigir a alguna página o devolver una respuesta
         return redirect()->route('registro');
+>>>>>>> 8e6934ba5bcc17968f262491a4291946d2b0436c
     }
 
     /**
      * Store a newly created resource in storage.
      */
+<<<<<<< HEAD
+    public function store(Request $request)
+{
+    // Validar los datos del formulario
+    $request->validate([
+        'nombre_user' => 'required|string|max:255',
+        'dni' => 'required|string|max:255',
+        'nombre' => 'required|string|max:255',
+        'apellidos' => 'required|string|max:255',
+        'telefono' => 'required|string|max:255',
+        'direccion' => 'required|string|max:255',
+        'contraseña' => 'required|string|max:255',
+        'puesto' => 'required|string|max:255',
+        'incorporacion' => 'required|date',
+        'id_departamento' => 'required|integer',
+        'id_evento' => 'nullable|integer',
+        'estado' => 'required|string|max:255',
+    ]);
+
+    return redirect('lista_emociones');
+}
+
+=======
     public function store(Request $request) 
     {
         // Validar los datos del formulario
@@ -118,6 +170,7 @@ class PrincipalController extends Controller
     {
         return view('lista_emociones');
     }
+>>>>>>> 8e6934ba5bcc17968f262491a4291946d2b0436c
 
     /**
      * Display the specified resource.
@@ -171,6 +224,23 @@ class PrincipalController extends Controller
 
     return redirect()->route('lista_emociones')->with('notice', 'El evento ha sido eliminado correctamente.')->with('noticeType', 'success');
     }
+
+    public function Login()
+    {
+
+        return view('login');
+    }
+
+    public function lista_emociones()
+    {
+        return view('lista_emociones');
+    }
+    public function registro()
+    {
+        return view('registro');
+    }
+
+
 }
 
 

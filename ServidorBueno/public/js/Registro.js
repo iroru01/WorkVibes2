@@ -149,5 +149,11 @@ document.addEventListener('DOMContentLoaded', function() {
             fechaError.textContent = ""; // Cambio aquí
         }
 
+<<<<<<< HEAD
+=======
+        if (!document.querySelectorAll('.error').length) {
+            window.location.href = "{{url('lista_emociones.php')}}"; 
+        }
+>>>>>>> 882ca7bec9c29b834b27d53d7caae62909660846
     });
 });
