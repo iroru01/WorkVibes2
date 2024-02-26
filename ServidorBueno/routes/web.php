@@ -17,22 +17,27 @@ use App\Http\Controllers\PrincipalController;
 |
 */
 /*crear usuario*/
-Route::post('/usuarios', [PrincipalController::class, 'store'])->name('usuarios.store');
+
+/* Mostrar el formulario de registro */
+Route::get('/registrar_user', [PrincipalController::class, 'create'])->name('registro.create');
+
+/* Procesar el formulario de registro */
+Route::post('/almacenar_user', [PrincipalController::class, 'store'])->name('registro.store');
+
+Route::get('/index', [PrincipalController::class, 'index'])->name('index');
+
+Route::get('/iniciar_sesion', [PrincipalController::class, 'login'])->name('login');
+
+Route::get('/lista', [PrincipalController::class, 'lista_emociones'])->name('lista_emociones');
+
+
+Route::post('/iniciar_sesion', [PrincipalController::class, 'login'])->name('login');
+Route::get('/registro', [PrincipalController::class, 'registro'])->name('registro');
 
 /*index*/
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/index', function () {
     return view('index');
 });
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-
 
 Route::get('/lista', function () {
     return view('lista_emociones');

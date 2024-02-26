@@ -26,24 +26,23 @@
         <div class="col-12 col-md-6 inicio_Ses_Form">
             <h4>Inicio de sesión</h4>
             <br>
-            <form id="miFormulario" action="" method="GET">
+            <form id="miFormulario" method="POST" action="{{ route('login') }}">
+                @csrf
                 <div>
-                    <input type="text" placeholder="Nombre de usuario" class="form-control col-12 col-md-8"  id="nombre" name="nombre" required>
+                    <input type="text" placeholder="Nombre de usuario" class="form-control col-12 col-md-8" id="nombre" name="nombre" required>
                     <span class="error-msg" id="nombre-error"></span>
                 </div>
                 <div>
-                    <input type="password" placeholder="Contraseña" class="form-control col-12 col-md-8"  id="contraseña" name="contraseña" required>
+                    <input type="password" placeholder="Contraseña" class="form-control col-12 col-md-8" id="contraseña" name="contraseña" required>
                     <span class="error-msg" id="contraseña-error"></span>
                 </div>
-                <a href="lista_emociones.html">
-                    <button type="button" class="form-control col-12 col-md-8" id="btn_entrar" name="button">Iniciar Sesión</button>
-                </a>
-                
-                <a href="registro.html">
-                    <button type="button" class="form-control col-12 col-md-8" id="btn_registrar" name="button" required>Registrarse</button>
-                </a>
-                
+                <button type="button" class="form-control col-12 col-md-8" id="btn_entrar" name="button">Iniciar Sesión</button>
             </form>
+            <br>
+            <a href="{{ url('/registro_user') }}">
+                <button type="button" class="form-control col-12 col-md-8" id="btn_registrar" name="button">Registrarse</button>
+            </a>
+            
             <!-- JAVASCRIPT BTN INCIAR SESION-->
         </div>
     </div>
