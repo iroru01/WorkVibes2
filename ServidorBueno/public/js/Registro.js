@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const nombreUsuarioInput = document.getElementById('nombre_usuario');
+    const nombreUsuarioInput = document.getElementById('nombre_user');
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
     const dniInput = document.getElementById('dni');
     const telefonoInput = document.getElementById('telefono');
     const direccionInput = document.getElementById('direccion');
     const contraseñaInput = document.getElementById('contraseña');
-    const confirmarContraseñaInput = document.getElementById('confirma_contraseña');
-    const fechaInput = document.getElementById('fecha');
+    //const confirmarContraseñaInput = document.getElementById('confirma_contraseña');
+    const fechaInput = document.getElementById('incorporacion');
     const fechaError = document.getElementById('fecha-error'); // Cambio aquí
     const jefeInputs = document.querySelectorAll('input[name="jefe"]');
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let telefonoValue = telefonoInput.value;
         let direccionValue = direccionInput.value;
         let contraseñaValue = contraseñaInput.value;
-        let confirmarContraseñaValue = confirmarContraseñaInput.value;
+        //let confirmarContraseñaValue = confirmarContraseñaInput.value;
         let fechaValue = fechaInput.value;
 
         let nombreUsuarioRegex = /^[a-zA-Z0-9]{1,20}$/; 
@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('contraseña-error').textContent = "";
         }
 
+        /*
         if (!contraseñaValue.trim() && !confirmarContraseñaValue.trim()) {
             confirmarContraseñaInput.classList.add('error');
             document.getElementById('confirma_contraseña-error').textContent = "Debes ingresar la contraseña y confirmarla";
@@ -119,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             confirmarContraseñaInput.classList.remove('error');
             document.getElementById('confirma_contraseña-error').textContent = "";
-        }
+        }*/
 
         let jefeSelected = false;
         jefeInputs.forEach(function(input) {
@@ -148,8 +149,5 @@ document.addEventListener('DOMContentLoaded', function() {
             fechaError.textContent = ""; // Cambio aquí
         }
 
-        if (!document.querySelectorAll('.error').length) {
-            window.location.href = "lista_emociones.html"; 
-        }
     });
 });

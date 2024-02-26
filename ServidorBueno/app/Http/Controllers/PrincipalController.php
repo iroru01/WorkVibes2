@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 
+
 class PrincipalController extends Controller
 {
     /**
@@ -46,7 +47,7 @@ class PrincipalController extends Controller
             'incorporacion' => 'required|date',
             'id_departamento' => 'nullable|integer',
             'id_evento' => 'nullable|integer',
-            'estado' => 'required|string|max:255',
+            'estado' => 'nullable|string|max:255',
         ]);
     
         // Crear un nuevo usuario con los datos proporcionados
@@ -90,7 +91,7 @@ class PrincipalController extends Controller
             'incorporacion' => 'required|date',
             'id_departamento' => 'nullable|integer',
             'id_evento' => 'nullable|integer',
-            'estado' => 'required|string|max:255',
+            'estado' => 'nullable|string|max:255',
         ]);
 
         // Guardar el usuario en la base de datos
