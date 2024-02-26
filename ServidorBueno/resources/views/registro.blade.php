@@ -51,51 +51,6 @@
 
             <input type="password" name="contraseña" class="form-control col-8" id="contraseña" placeholder="Contraseña:" required>
         </div>
-<<<<<<< HEAD
-
-        <form method="POST" action="{{ route('guardar.usuario') }}">
-        @csrf
-
-        <label for="nombre_user">Nombre de Usuario:</label>
-        <input type="text" name="nombre_user" required><br>
-
-        <label for="dni">DNI:</label>
-        <input type="text" name="dni" required><br>
-
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" required><br>
-
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" name="apellidos" required><br>
-
-        <label for="telefono">Teléfono:</label>
-        <input type="text" name="telefono" required><br>
-
-        <label for="direccion">Dirección:</label>
-        <input type="text" name="direccion" required><br>
-
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" name="contraseña" required><br>
-
-        <label for="puesto">Puesto:</label>
-        <input type="text" name="puesto" required><br>
-
-        <label for="incorporacion">Fecha de Incorporación:</label>
-        <input type="date" name="incorporacion" required><br>
-
-        <label for="id_departamento">ID del Departamento:</label>
-        <input type="text" name="id_departamento"><br>
-
-        <label for="id_evento">ID del Evento:</label>
-        <input type="text" name="id_evento"><br>
-
-        <label for="estado">Estado:</label>
-        <input type="text" name="estado" required><br>
-
-        <button type="submit">Guardar Usuario</button>
-        
-=======
->>>>>>> ec5dce01966e1efc174f1521205bbac54eaedca9
         <div class="row" id="section_encargado">
             <div class="col-12">
                 <h4>¿Eres jefe o empleado?</h4>
