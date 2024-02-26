@@ -36,7 +36,18 @@
                     <input type="password" placeholder="Contraseña" class="form-control col-12 col-md-8" id="contraseña" name="contraseña" required>
                     <span class="error-msg" id="contraseña-error"></span>
                 </div>
+<<<<<<< HEAD
                 <button type="button" class="form-control col-12 col-md-8" id="btn_entrar" name="button">Iniciar Sesión</button>
+=======
+                <a href="lista_emociones">
+                    <button type="button" class="form-control col-12 col-md-8" id="btn_entrar" name="button">Iniciar Sesión</button>
+                </a>
+                
+                <a href="{{ route('crear.usuario') }}">
+                    <button type="button" class="form-control col-12 col-md-8" id="btn_registrar" name="button" required>Registrarse</button>
+                </a>
+                
+>>>>>>> 8e6934ba5bcc17968f262491a4291946d2b0436c
             </form>
             <br>
             <a href="{{ url('/registro_user') }}">
