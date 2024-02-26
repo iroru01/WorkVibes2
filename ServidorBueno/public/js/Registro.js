@@ -1,153 +1,187 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('form1');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        validateForm();
+    });
+
+    function validateForm() {
+        const nombreUsuarioValido = validateNombreUsuario();
+        const dniValido = validateDNI();
+        const nombreValido = validateNombre();
+        const apellidoValido = validateApellido();
+        const telefonoValido = validateTelefono();
+        const direccionValida = validateDireccion();
+        const contraseñaValida = validateContraseña();
+        const puestoValido = validatePuesto();
+        const incorporacionValida = validateIncorporacion();
+
+        if (
+            nombreUsuarioValido &&
+            dniValido &&
+            nombreValido &&
+            apellidoValido &&
+            telefonoValido &&
+            direccionValida &&
+            contraseñaValida &&
+            puestoValido &&
+            incorporacionValida
+        ) {
+            form.submit();
+        } else {
+            console.log('Por favor, corrija los errores en el formulario');
+        }
+    }
+
+    function showError(input, message) {
+        const errorSpan = document.getElementById(input.id + '-error');
+        errorSpan.textContent = message;
+        input.classList.add('is-invalid');
+    }
+
+    function hideError(inputId) {
+        const errorSpan = document.getElementById(inputId + '-error');
+        if (errorSpan) {
+            errorSpan.textContent = '';
+            const input = document.getElementById(inputId);
+            if (input) {
+                input.classList.remove('is-invalid');
+            }
+        }
+    }
+    
+
+    function validateNombreUsuario() {
+        const value = nombreUsuarioInput.value.trim();
+        const nombreUsuarioRegex = /^[a-zA-Z0-9]{1,20}$/;
+        if (value === '') {
+            showError(nombreUsuarioInput, 'El nombre de usuario es obligatorio');
+            return false;
+        } else if (!nombreUsuarioRegex.test(value)) {
+            showError(nombreUsuarioInput, 'El nombre de usuario debe contener entre 1 y 20 caracteres alfanuméricos');
+            return false;
+        } else {
+            hideError(nombreUsuarioInput);
+            return true;
+        }
+    }
+
+    function validateDNI() {
+        const value = dniInput.value.trim();
+        const dniRegex = /^[0-9]{8}[a-zA-Z]$/;
+        if (value === '') {
+            showError(dniInput, 'El DNI es obligatorio');
+            return false;
+        } else if (!dniRegex.test(value)) {
+            showError(dniInput, 'El DNI debe tener 8 dígitos seguidos de una letra');
+            return false;
+        } else {
+            hideError(dniInput);
+            return true;
+        }
+    }
+
+    function validateNombre() {
+        const value = nombreInput.value.trim();
+        const nombreRegex = /^[a-zA-Z]{1,100}$/;
+        if (value === '') {
+            showError(nombreInput, 'El nombre es obligatorio');
+            return false;
+        } else if (!nombreRegex.test(value)) {
+            showError(nombreInput, 'El nombre solo puede contener letras y tener hasta 100 caracteres');
+            return false;
+        } else {
+            hideError(nombreInput);
+            return true;
+        }
+    }
+
+    function validateApellido() {
+        const value = apellidoInput.value.trim();
+        const apellidoRegex = /^[a-zA-Z\s]{1,100}$/;
+        if (value === '') {
+            showError(apellidoInput, 'El apellido es obligatorio');
+            return false;
+        } else if (!apellidoRegex.test(value)) {
+            showError(apellidoInput, 'El apellido solo puede contener letras y tener hasta 100 caracteres');
+            return false;
+        } else {
+            hideError(apellidoInput);
+            return true;
+        }
+    }
+
+    function validateTelefono() {
+        const value = telefonoInput.value.trim();
+        const telefonoRegex = /^[0-9]{9}$/;
+        if (value === '') {
+            showError(telefonoInput, 'El teléfono es obligatorio');
+            return false;
+        } else if (!telefonoRegex.test(value)) {
+            showError(telefonoInput, 'El teléfono debe tener 9 dígitos');
+            return false;
+        } else {
+            hideError(telefonoInput);
+            return true;
+        }
+    }
+
+    function validateDireccion() {
+        const value = direccionInput.value.trim();
+        if (value === '') {
+            showError(direccionInput, 'La dirección es obligatoria');
+            return false;
+        } else {
+            hideError(direccionInput);
+            return true;
+        }
+    }
+
+    function validateContraseña() {
+        const value = contraseñaInput.value.trim();
+        if (value === '') {
+            showError(contraseñaInput, 'La contraseña es obligatoria');
+            return false;
+        } else if (value.length < 8) {
+            showError(contraseñaInput, 'La contraseña debe tener al menos 8 caracteres');
+            return false;
+        } else {
+            hideError(contraseñaInput);
+            return true;
+        }
+    }
+
+    function validatePuesto() {
+        const value = puestoSelect.value;
+        if (value === '') {
+            showError(puestoSelect, 'Por favor selecciona tu puesto');
+            return false;
+        } else {
+            hideError(puestoSelect);
+            return true;
+        }
+    }
+
+    function validateIncorporacion() {
+        const value = incorporacionInput.value;
+        if (value === '') {
+            showError(incorporacionInput, 'Por favor selecciona tu fecha de incorporación');
+            return false;
+        } else {
+            hideError(incorporacionInput);
+            return true;
+        }
+    }
+
+    // Obtener referencias a los elementos del formulario
     const nombreUsuarioInput = document.getElementById('nombre_user');
+    const dniInput = document.getElementById('dni');
     const nombreInput = document.getElementById('nombre');
     const apellidoInput = document.getElementById('apellido');
-    const dniInput = document.getElementById('dni');
     const telefonoInput = document.getElementById('telefono');
     const direccionInput = document.getElementById('direccion');
     const contraseñaInput = document.getElementById('contraseña');
-    //const confirmarContraseñaInput = document.getElementById('confirma_contraseña');
-    const fechaInput = document.getElementById('incorporacion');
-    const fechaError = document.getElementById('fecha-error'); // Cambio aquí
-    const jefeInputs = document.querySelectorAll('input[name="jefe"]');
-
-    const btnNext = document.getElementById('btn_next'); 
-    btnNext.addEventListener('click', function(event) { 
-        event.preventDefault(); 
-
-        let nombreUsuarioValue = nombreUsuarioInput.value;
-        let nombreValue = nombreInput.value;
-        let apellidoValue = apellidoInput.value;
-        let dniValue = dniInput.value;
-        let telefonoValue = telefonoInput.value;
-        let direccionValue = direccionInput.value;
-        let contraseñaValue = contraseñaInput.value;
-        //let confirmarContraseñaValue = confirmarContraseñaInput.value;
-        let fechaValue = fechaInput.value;
-
-        let nombreUsuarioRegex = /^[a-zA-Z0-9]{1,20}$/; 
-        let nombreRegex = /^[a-zA-Z]{1,100}$/;
-        let apellidoRegex = /^[a-zA-Z]{1,100}$/;
-        let dniRegex = /^[0-9]{8}[a-zA-Z]$/;
-        let telefonoRegex = /^[6-7][0-9]{8}$/;
-        let direccionRegex = /^.{1,100}$/;
-        let contraseñaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,16}$/;
-        
-        if (!nombreUsuarioValue.trim()) {
-            nombreUsuarioInput.classList.add('error'); 
-            document.getElementById('nombre_usuario-error').textContent = "El nombre de usuario es obligatorio"; 
-        } else if (!nombreUsuarioRegex.test(nombreUsuarioValue)) {
-            nombreUsuarioInput.classList.add('error'); 
-            document.getElementById('nombre_usuario-error').textContent = "El nombre de usuario debe contener entre 1 y 20 caracteres alfanuméricos";  
-        } else {
-            nombreUsuarioInput.classList.remove('error'); 
-            document.getElementById('nombre_usuario-error').textContent = "";
-        }
-
-        if (!nombreValue.trim()) {
-            nombreInput.classList.add('error');
-            document.getElementById('nombre-error').textContent = "El nombre es obligatorio";
-        } else if (!nombreRegex.test(nombreValue)) {
-            nombreInput.classList.add('error');
-            document.getElementById('nombre-error').textContent = "El nombre solo puede contener letras y tener hasta 100 caracteres";
-        } else {
-            nombreInput.classList.remove('error');
-            document.getElementById('nombre-error').textContent = "";
-        }
-
-        if (!apellidoValue.trim()) {
-            apellidoInput.classList.add('error');
-            document.getElementById('apellido-error').textContent = "El apellido es obligatorio";
-        } else if (!apellidoRegex.test(apellidoValue)) {
-            apellidoInput.classList.add('error');
-            document.getElementById('apellido-error').textContent = "El apellido solo puede contener letras y tener hasta 100 caracteres";
-        } else {
-            apellidoInput.classList.remove('error');
-            document.getElementById('apellido-error').textContent = "";
-        }
-
-        if (!dniValue.trim()) {
-            dniInput.classList.add('error');
-            document.getElementById('dni-error').textContent = "El DNI es obligatorio";
-        } else if (!dniRegex.test(dniValue)) {
-            dniInput.classList.add('error');
-            document.getElementById('dni-error').textContent = "El DNI debe tener 8 dígitos seguidos de una letra";
-        } else {
-            dniInput.classList.remove('error');
-            document.getElementById('dni-error').textContent = "";
-        }
-
-        if (!telefonoValue.trim()) {
-            telefonoInput.classList.add('error');
-            document.getElementById('telefono-error').textContent = "El teléfono es obligatorio";
-        } else if (!telefonoRegex.test(telefonoValue)) {
-            telefonoInput.classList.add('error');
-            document.getElementById('telefono-error').textContent = "El teléfono debe tener 9 dígitos y empezar por 6 o 7";
-        } else {
-            telefonoInput.classList.remove('error');
-            document.getElementById('telefono-error').textContent = "";
-        }
-
-        if (!direccionValue.trim()) {
-            direccionInput.classList.add('error');
-            document.getElementById('direccion-error').textContent = "La dirección es obligatoria";
-        } else if (!direccionRegex.test(direccionValue)) {
-            direccionInput.classList.add('error');
-            document.getElementById('direccion-error').textContent = "La dirección debe tener hasta 100 caracteres";
-        } else {
-            direccionInput.classList.remove('error');
-            document.getElementById('direccion-error').textContent = "";
-        }
-
-        if (!contraseñaValue.trim()) {
-            contraseñaInput.classList.add('error');
-            document.getElementById('contraseña-error').textContent = "La contraseña es obligatoria";
-        } else if (!contraseñaRegex.test(contraseñaValue)) {
-            contraseñaInput.classList.add('error');
-            document.getElementById('contraseña-error').textContent = "Contraseña inválida. Los requisitos son 1 Mayúscula, 1 Minúscula, 1 Carácter especial y 1 Número.";
-        } else {
-            contraseñaInput.classList.remove('error');
-            document.getElementById('contraseña-error').textContent = "";
-        }
-
-        /*
-        if (!contraseñaValue.trim() && !confirmarContraseñaValue.trim()) {
-            confirmarContraseñaInput.classList.add('error');
-            document.getElementById('confirma_contraseña-error').textContent = "Debes ingresar la contraseña y confirmarla";
-        } else if (contraseñaValue !== confirmarContraseñaValue) {
-            confirmarContraseñaInput.classList.add('error');
-            document.getElementById('confirma_contraseña-error').textContent = "Las contraseñas no coinciden";
-        } else {
-            confirmarContraseñaInput.classList.remove('error');
-            document.getElementById('confirma_contraseña-error').textContent = "";
-        }*/
-
-        let jefeSelected = false;
-        jefeInputs.forEach(function(input) {
-            if (input.checked) {
-                jefeSelected = true;
-            }
-        });
-        if (!jefeSelected) {
-            document.getElementById('jefe-error').textContent = "Debes seleccionar si eres Jefe o Empleado";
-        } else {
-            document.getElementById('jefe-error').textContent = "";
-        }
-
-        // Validar fecha
-        let today = new Date(); // Obtener la fecha actual
-        let selectedDate = new Date(fechaValue); // Convertir la fecha seleccionada por el usuario a objeto Date
-
-        if (!fechaValue.trim()) { // Verificar si la fecha está en blanco
-            fechaInput.classList.add('error');
-            fechaError.textContent = "Debes seleccionar una fecha es obligatoria"; // Cambio aquí
-        } else if (selectedDate > today) { 
-            fechaInput.classList.add('error'); 
-            fechaError.textContent = "La fecha no puede ser posterior a la fecha actual"; // Cambio aquí
-        } else {
-            fechaInput.classList.remove('error'); // Quitar la clase de estilo para el borde rojo
-            fechaError.textContent = ""; // Cambio aquí
-        }
-
-    });
+    const puestoSelect = document.getElementById('puesto');
+    const incorporacionInput = document.getElementById('incorporacion');
 });
+
