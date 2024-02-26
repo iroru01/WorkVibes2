@@ -9,7 +9,7 @@ class PrincipalController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+     */ 
 
     //Hay que crear un metodo register que será un store que es donde guardaremos toda la info y de aqui nos redirigirá a una funcion que es create para crear los usuarios y guardar los usuarios en la base de datos
     

@@ -100,6 +100,7 @@
         <input type="text" name="estado" required><br>
 
         <button type="submit">Guardar Usuario</button>
+        
         <div class="row" id="section_encargado">
             <div class="col-12">
                 <h4>¿Eres Jefe o Empleado</h4>
