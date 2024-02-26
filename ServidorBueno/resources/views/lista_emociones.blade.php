@@ -20,7 +20,7 @@
         <!-- MENU -->
         <nav id="mainnav" role="navigation">
             <ul>
-                <li><a href='{{ url("lista/emociones") }}'><i class="fas fa-list-ul"></i><span>Lista de emociones</span></a></li>
+                <li><a href='{{ url("/emociones") }}'><i class="fas fa-list-ul"></i><span>Insertar Emocion</span></a></li>
                 <li><a href='{{ url("login") }}'><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesion</span></a></li>
                 <li><a href='{{ url("index") }}'><i class="fas fa-home"></i><span>Inicio</span></a></li>
                 <li><a href=""><i class="fas fa-bars"></i></a></li>

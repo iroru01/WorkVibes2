@@ -118,6 +118,11 @@ class PrincipalController extends Controller
     {
         return view('lista_emociones');
     }
+    public function Emociones()
+    {
+        return view('insertar_emocion');
+    }
+
 
     /**
      * Display the specified resource.

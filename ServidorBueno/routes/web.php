@@ -17,6 +17,7 @@ use App\Http\Controllers\PrincipalController;
 Route::post('/usuarios/store', [PrincipalController::class, 'store'])->name('usuarios.store');
 Route::get('/register', [PrincipalController::class, 'create'])->name('usuarios.create');
 Route::get('/lista/emociones', [PrincipalController::class, 'listaEmociones'])->name('lista.emociones');
+Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emociones');
 
 Route::get('/crear-usuario', [PrincipalController::class, 'formularioCrear'])->name('crear.usuario');
 Route::post('/guardar-usuario', [PrincipalController::class, 'guardar'])->name('guardar.usuario');
@@ -38,13 +39,6 @@ Route::get('/registro', function () {
     return view('registro');
 });
 
-Route::get('/lista', function () {
-    return view('lista_emociones');
-});
-
-Route::get('/emociones', function () {
-    return view('insertar_emocion');
-});
 
 Route::get('/fin', function () {
     return view('fin');
