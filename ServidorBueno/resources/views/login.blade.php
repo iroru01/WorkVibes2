@@ -11,10 +11,10 @@
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href="https://fonts.googleapis.com/css?family=lato:300i,400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="fuentes_awesome/all.css">
-    <script src="js/Login.js"></script>
+    {{-- <script src="js/Login.js"></script> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
+    
 </head>
 <body>
 <br>
@@ -35,7 +35,7 @@
                     <input type="password" placeholder="Contraseña" class="form-control col-12 col-md-8"  id="contraseña" name="contraseña" required>
                     <span class="error-msg" id="contraseña-error"></span>
                 </div>
-                <a href="lista_emociones">
+                <a href='{{ url("lista/emociones") }}'>
                     <button type="button" class="form-control col-12 col-md-8" id="btn_entrar" name="button">Iniciar Sesión</button>
                 </a>
                 

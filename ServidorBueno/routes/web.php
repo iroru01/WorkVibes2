@@ -38,8 +38,6 @@ Route::get('/registro', function () {
     return view('registro');
 });
 
-
-
 Route::get('/lista', function () {
     return view('lista_emociones');
 });

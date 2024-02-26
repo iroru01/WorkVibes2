@@ -19,15 +19,15 @@
         
     </head>
     <header>
-            <!-- MENU -->
-            <nav id="mainnav" role="navigation">
-                <ul>
-                    <li><a href="lista_emociones.html"><i class="fas fa-list-ul"></i><span>Lista de emociones</span></a></li>
-                    <li><a href="login.html"><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesion</span></a></li>
-                    <li><a href="Index.html"><i class="fas fa-home"></i><span>Inicio</span></a></li>
-                    <li><a href="#"><i class="fas fa-bars"></i></a></li>
-                </ul>
-            </nav>
+        <!-- MENU -->
+        <nav id="mainnav" role="navigation">
+            <ul>
+                <li><a href='{{ url("lista/emociones") }}'><i class="fas fa-list-ul"></i><span>Lista de emociones</span></a></li>
+                <li><a href='{{ url("login") }}'><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesion</span></a></li>
+                <li><a href='{{ url("index") }}'><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                <li><a href=""><i class="fas fa-bars"></i></a></li>
+            </ul>
+        </nav>
     </header>
     <!-- Barra de usuario -->
     <div class="barra_usuario">
