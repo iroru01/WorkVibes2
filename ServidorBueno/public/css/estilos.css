@@ -5,9 +5,7 @@
     align-items: center;
     justify-content: center;
 }
-.container-fluid {
- padding: 0px 0px 0px 80px;
-}
+
 
 input{
     margin-top: 6px;
@@ -299,6 +297,25 @@ width: 60%;
 }
 
 #btn_next:hover {
+  text-decoration: none;
+  background-position: 100% 100%;
+}
+
+#btn_guardar{
+  text-decoration: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, #007bff, rgb(219, 26, 219));
+  background-size: 200% 200%;
+  transition: background-position 0.3s ease;
+}
+#btn_guardar:hover {
   text-decoration: none;
   background-position: 100% 100%;
 }
