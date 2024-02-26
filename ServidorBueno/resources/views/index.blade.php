@@ -23,14 +23,8 @@
 		<div class="row">
 			<img class="img_logo" src="imgs/Logo_WV.jpg" alt="LOGO WORK VIBES">	
 		</div>
-<<<<<<< HEAD
-		<a href='{{url('/iniciar_sesion')}}'><button type="submit" class="bg-gradient-to-r from-blue-500 to-red-500 text-white px-4 py-2 text-xl rounded font-medium focus:ring ring-black ring-opacity-10 gradient element-to-rotate" id="btn_entrar">ENTRAR</button>
-		</a>
-
-=======
 		<!-- QUITAR LUEGO HREF-->
 		<a href="login"><button type="button" value="entrar"class="bg-gradient-to-r from-blue-500 to-red-500 text-white px-4 py-2 text-xl rounded font-medium focus:ring ring-black ring-opacity-10 gradient element-to-rotate" id="btn_entrar">ENTRAR</button></a>
 	</div>
->>>>>>> 8e6934ba5bcc17968f262491a4291946d2b0436c
 </body>
 </html>

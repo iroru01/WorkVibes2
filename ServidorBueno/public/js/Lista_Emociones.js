@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para redirigir a la página de emociones al hacer clic en el ícono de añadir
     function redireccionarEmociones(event) {
         event.preventDefault(); // Evita que el enlace se active
-        window.location.href = "{{url('insertar_emocion')}}"; // Redirige a la página de emociones
+        window.location.href = 'emociones.html'; // Redirige a la página de emociones
     }
 
     // Agregar evento clic al ícono de añadir
