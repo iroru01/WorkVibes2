@@ -11,9 +11,10 @@
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href="https://fonts.googleapis.com/css?family=lato:300i,400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="fuentes_awesome/all.css">
-    <script src="../../public/js/Login.js"></script>
+    <script src="Login.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    
     
 </head>
 <body>
@@ -28,19 +29,22 @@
             <br>
             <!-- <form id="miFormulario" action="" method="GET"> -->
             <form method="POST" action="{{route('inicia-sesion')}}">
-
+                @csrf
                 <div>
-                    <input  type="text"  name="nombre" required placeholder="Nombre de usuario" class="form-control col-12 col-md-8"  id="nombre" >
+                    <input  type="text"  name="nombre_user" required placeholder="Nombre de usuario" class="form-control col-12 col-md-8"  id="nombre_user" >
                     <span class="error-msg" id="nombre-error"></span>
                 </div>
                 <div>
                     <input type="password" placeholder="Contraseña" class="form-control col-12 col-md-8"  id="contraseña" name="contraseña" required>
                     <span class="error-msg" id="contraseña-error"></span>
                 </div>
-                <a href='{{ url("lista/emociones") }}'>
-                    <button type="button" class="form-control col-12 col-md-8" id="btn_entrar" name="button">Iniciar Sesión</button>
-                </a>
-                
+                @if(session('error'))
+                    <div class="form-control col-12 col-md-8 alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                    @endif
+                    <button type="submit" class="form-control col-12 col-md-8" id="btn_entrar" name="button">Iniciar Sesión</button>
+                    
                 <a href="{{ route('crear.usuario') }}">
                     <button type="button" class="form-control col-12 col-md-8" id="btn_registrar" name="button" required>Registrarse</button>
                 </a>

@@ -16,19 +16,23 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-        
 
-        $credential = [
-            "nombre_user" => $request -> nombre_user,
-            "contraseña" => $request -> contraseña,
-        ];
+        $credentials = $request->only('nombre_user', 'contraseña');
 
-        if(Auth::attempt($credentials)){
-            return redirect('/lista/emociones');
+        // Buscar al usuario por nombre de usuario
+        $user = User::where('nombre_user', $credentials['nombre_user'])->first();
+    
+        if ($user) {
+            // Si el usuario existe, verificar la contraseña
+            if ($credentials['contraseña'] == $user->contraseña) {
+                // Autenticación exitosa
+                Auth::login($user);
+                return redirect('/lista/emociones');
+            }
         }
-        else{
-            return redirect('login');
-        }
+    
+        // Autenticación fallida
+        return redirect('login')->with('error', 'Nombre de usuario o contraseña incorrectos');
         
     }
 
