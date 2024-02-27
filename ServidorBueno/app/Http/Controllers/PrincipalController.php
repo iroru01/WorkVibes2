@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Usuario;
+use App\Models\User;
 
 
 class PrincipalController extends Controller
@@ -28,6 +28,8 @@ class PrincipalController extends Controller
         // Opcional: redirigir a alguna página o devolver una respuesta
         return redirect()->route('registro');
     }
+
+    
 
     /**
      * Store a newly created resource in storage.
@@ -95,7 +97,8 @@ class PrincipalController extends Controller
         ]);
 
         // Guardar el usuario en la base de datos
-        Usuario::create([
+        User::create([
+            'email' => $request -> nombre_user,
             'nombre_user' => $request->nombre_user,
             'dni' => $request->dni,
             'nombre' => $request->nombre,

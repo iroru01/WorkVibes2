@@ -42,4 +42,14 @@ Route::get('/registro', function () {
 
 Route::get('/fin', function () {
     return view('fin');
-});
+}); 
+
+
+//LOGIN
+Route::view('/login',"login") -> name('login');
+Route::view('/registro',"register")->name('registro');
+Route::view('/privada',"secret")->middleware('auth') -> name('privada'); //el middleware busca que el usuario que inicia sesión ya tenga una sesión abierta, sino que ya exista para poder abrir la sesion
+
+Route::post('/validar-registro',[LoginController::class,'register'])->name('validar-registro');
+Route::post('/inicia-sesion',[LoginController::class,'login'])->name('inicia-sesion');
+ROute::get('/logout',[LoginController::class,'logout'])->name('logout');

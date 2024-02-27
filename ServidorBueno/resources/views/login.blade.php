@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href="https://fonts.googleapis.com/css?family=lato:300i,400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="fuentes_awesome/all.css">
-    {{-- <script src="js/Login.js"></script> --}}
+    <script src="../../public/js/Login.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     
@@ -26,9 +26,11 @@
         <div class="col-12 col-md-6 inicio_Ses_Form">
             <h4>Inicio de sesión</h4>
             <br>
-            <form id="miFormulario" action="" method="GET">
+            <!-- <form id="miFormulario" action="" method="GET"> -->
+            <form method="POST" action="{{route('inicia-sesion')}}">
+
                 <div>
-                    <input type="text" placeholder="Nombre de usuario" class="form-control col-12 col-md-8"  id="nombre" name="nombre" required>
+                    <input  type="text"  name="nombre" required placeholder="Nombre de usuario" class="form-control col-12 col-md-8"  id="nombre" >
                     <span class="error-msg" id="nombre-error"></span>
                 </div>
                 <div>
