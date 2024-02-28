@@ -76,13 +76,7 @@ function guardar() {
       .then((data) => {
         if (data === "success") {
           alert("Emoción guardada correctamente.");
-          window.location.href = "fin.html";
-        } else {
-          alert("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
+          window.location.href = "fin";
         }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
       });
   }

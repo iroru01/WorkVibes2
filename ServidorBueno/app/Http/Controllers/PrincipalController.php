@@ -3,17 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Evento;
 use App\Models\Emocion;
 use Illuminate\Support\Facades\Redirect;
-=======
-use App\Models\User;
-
->>>>>>> 6da1508d7cea541e7181fd0473189c415d28feac
 
 class PrincipalController extends Controller
 {
@@ -101,7 +96,6 @@ class PrincipalController extends Controller
         'estado' => 'nullable|string|max:255',
     ]);
 
-<<<<<<< HEAD
     // Create a new user with the plain text password
     $user = User::create([
         'nombre_user' => $request->nombre_user,
@@ -121,24 +115,6 @@ class PrincipalController extends Controller
     // Redirigir a alguna página de éxito o mostrar un mensaje de éxito
     return redirect()->route('lista.emociones')->with('success', 'Usuario creado correctamente');
 }
-=======
-        // Guardar el usuario en la base de datos
-        User::create([
-            'email' => $request -> nombre_user,
-            'nombre_user' => $request->nombre_user,
-            'dni' => $request->dni,
-            'nombre' => $request->nombre,
-            'apellidos' => $request->apellidos,
-            'telefono' => $request->telefono,
-            'direccion' => $request->direccion,
-            'contraseña' => $request->contraseña, 
-            'puesto' => $request->puesto,
-            'incorporacion' => $request->incorporacion,
-            'id_departamento' => $request->id_departamento,
-            'id_evento' => $request->id_evento,
-            'estado' => $request->estado
-        ]);
->>>>>>> 6da1508d7cea541e7181fd0473189c415d28feac
 
 
     public function listaEmociones()
@@ -154,11 +130,6 @@ class PrincipalController extends Controller
     {
         return view('insertar_emocion');
     }
-    public function Emociones()
-    {
-        return view('insertar_emocion');
-    }
-
 
     /**
      * Display the specified resource.
@@ -244,7 +215,7 @@ class PrincipalController extends Controller
 
     // Redirigir a alguna página de éxito o mostrar un mensaje de éxito
     return redirect()->route('lista.emociones')->with('success', 'Emoción guardada correctamente');
-}
+    }
 
     public function login(Request $request)
     {

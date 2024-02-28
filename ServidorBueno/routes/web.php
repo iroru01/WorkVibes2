@@ -18,14 +18,6 @@ use App\Http\Controllers\LoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-<<<<<<< HEAD
-=======
-/*crear usuario*/
-Route::post('/usuarios/store', [PrincipalController::class, 'store'])->name('usuarios.store');
-Route::get('/register', [PrincipalController::class, 'create'])->name('usuarios.create');
-Route::get('/lista/emociones', [PrincipalController::class, 'listaEmociones'])->name('lista.emociones');
-Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emociones');
->>>>>>> 6da1508d7cea541e7181fd0473189c415d28feac
 
 /* Rutas para el controlador PrincipalController */
 
@@ -48,16 +40,8 @@ Route::get('/login', function () {
 
 Route::post('/login', [PrincipalController::class, 'login'])->name('login');
 
-Route::post('/logout', function () {
-    Auth::logout(); // Cierra la sesión del usuario
-    return redirect()->route('login'); // Redirige al usuario al formulario de inicio de sesión
-})->name('logout');
 
 
-/*RUTA PARA AUTENTICAR */
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 /* Rutas adicionales */
 Route::get('/', function () {
@@ -72,10 +56,6 @@ Route::get('/registro', function () {
     return view('registro');
 });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6da1508d7cea541e7181fd0473189c415d28feac
 Route::get('/fin', function () {
     return view('fin');
 }); 
