@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
+=======
+use App\Http\Controllers\LoginController;
+>>>>>>> 6da1508d7cea541e7181fd0473189c415d28feac
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,14 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+<<<<<<< HEAD
+=======
+/*crear usuario*/
+Route::post('/usuarios/store', [PrincipalController::class, 'store'])->name('usuarios.store');
+Route::get('/register', [PrincipalController::class, 'create'])->name('usuarios.create');
+Route::get('/lista/emociones', [PrincipalController::class, 'listaEmociones'])->name('lista.emociones');
+Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emociones');
+>>>>>>> 6da1508d7cea541e7181fd0473189c415d28feac
 
 /* Rutas para el controlador PrincipalController */
 
@@ -60,6 +72,20 @@ Route::get('/registro', function () {
     return view('registro');
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6da1508d7cea541e7181fd0473189c415d28feac
 Route::get('/fin', function () {
     return view('fin');
-});
+}); 
+
+
+//LOGIN
+Route::view('/login',"login") -> name('login');
+Route::view('/registro',"register")->name('registro');
+Route::view('/privada',"secret")->middleware('auth') -> name('privada'); //el middleware busca que el usuario que inicia sesión ya tenga una sesión abierta, sino que ya exista para poder abrir la sesion
+
+Route::post('/validar-registro',[LoginController::class,'register'])->name('validar-registro');
+Route::post('/inicia-sesion',[LoginController::class,'login'])->name('inicia-sesion');
+ROute::get('/logout',[LoginController::class,'logout'])->name('logout');

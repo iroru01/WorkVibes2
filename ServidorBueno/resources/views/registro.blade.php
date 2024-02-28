@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="fuentes_awesome/all.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    {{-- <script src="js/Registro.js"></script> --}}
+    <script src="js/Registro.js"></script> 
  
 </head>
 <body>
@@ -37,19 +37,27 @@
         
         <form id="form1" method="POST" action="{{ route('guardar.usuario') }}">
             @csrf
-            <input type="text" name="nombre_user" class="form-control col-8" placeholder="Nombre de Usuario:" id="nombre_user" required>
-            
-            <input type="text" class="form-control col-8" name="dni" id="dni" placeholder="DNI" required>
+            <input type="text" name="nombre_user" class="form-control col-8" placeholder="Nombre de Usuario" id="nombre_user" >
+            <span class="error-message" id="nombre_user-error"></span>
 
-            <input type="text" class="form-control col-8" name="nombre" id="nombre" placeholder="Nombre:" required>
+            <input type="text" class="form-control col-8" name="dni" id="dni" placeholder="DNI" >
+            <span class="error-message" id="dni-error"></span>
 
-            <input type="text" name="apellidos" class="form-control col-8" placeholder="Apellidos:" id="apellido" required>
+            <input type="text" class="form-control col-8" name="nombre" id="nombre" placeholder="Nombre" >
+            <span class="error-message" id="nombre-error"></span>
 
-            <input type="text" name="telefono" class="form-control col-8" placeholder="Teléfono:" id="telefono" required>
+            <input type="text" name="apellidos" class="form-control col-8" placeholder="Apellidos" id="apellido" >
+            <span class="error-message" id="apellido-error"></span>
 
-            <input type="text" name="direccion" class="form-control col-8" id="direccion" placeholder="Dirección:" required>
+            <input type="text" name="telefono" class="form-control col-8" placeholder="Teléfono" id="telefono" >
+            <span class="error-message" id="telefono-error"></span>
 
-            <input type="password" name="contraseña" class="form-control col-8" id="contraseña" placeholder="Contraseña:" required>
+            <input type="text" name="direccion" class="form-control col-8" id="direccion" placeholder="Dirección" >
+            <span class="error-message" id="direccion-error"></span>
+
+            <input type="password" name="contraseña" class="form-control col-8" id="contraseña" placeholder="Contraseña" >
+            <span class="error-message" id="contraseña-error"></span>
+
         </div>
         <div class="row" id="section_encargado">
             <div class="col-12">
@@ -61,8 +69,9 @@
                 </select>
                 <br>
                 <label for="incorporacion">Fecha de Incorporación:</label>
-                <input class="form-control" type="date" name="incorporacion" id="incorporacion" required>
-        
+                <input class="form-control" type="date" name="incorporacion" id="incorporacion">
+                <span class="error-message" id="incorporacion-error"></span>
+
                 <button id="btn_next" type="submit" class="form-control col-8">Guardar Usuario</button>
             </div>
         </div>
