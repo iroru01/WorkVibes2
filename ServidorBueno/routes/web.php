@@ -14,14 +14,11 @@ use App\Http\Controllers\LoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-<<<<<<< HEAD
-=======
 /*crear usuario*/
 Route::post('/usuarios/store', [PrincipalController::class, 'store'])->name('usuarios.store');
 Route::get('/register', [PrincipalController::class, 'create'])->name('usuarios.create');
 Route::get('/lista/emociones', [PrincipalController::class, 'listaEmociones'])->name('lista.emociones');
 Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emociones');
->>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
 
 Route::get('/crear-usuario', [PrincipalController::class, 'formularioCrear'])->name('crear.usuario');
 Route::post('/guardar-usuario', [PrincipalController::class, 'guardar'])->name('guardar.usuario');
@@ -31,20 +28,7 @@ Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emoci
 Route::post('/emociones/guardar', [PrincipalController::class, 'guardarEmocion'])->name('emociones.guardar');
 
 
-<<<<<<< HEAD
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
-Route::post('/login', [PrincipalController::class, 'login'])->name('login');
-
-
-
-
-/* Rutas adicionales */
-=======
 /*index*/
->>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
 Route::get('/', function () {
     return view('welcome');
 });
@@ -61,10 +45,7 @@ Route::get('/registro', function () {
     return view('registro');
 });
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
 Route::get('/fin', function () {
     return view('fin');
 }); 

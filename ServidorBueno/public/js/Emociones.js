@@ -78,12 +78,13 @@ function guardar() {
         if (data === "success") {
           alert("Emoción guardada correctamente.");
           window.location.href = "fin";
-<<<<<<< HEAD
-=======
         } else {
           alert("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
->>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
         }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
       });
 
 
