@@ -24,11 +24,7 @@
     <br>
     <h4>¡¡ NOS HAN LLEGAGO TUS EMOCIONES !!</h4>
     <img src="imgs/tick_azul.png" class="img_tickAzul" alt=""> 
-<<<<<<< HEAD
     <a href="lista/emociones"><button type="button" value="entrar" id="btn_entrar"><i class="fas fa-home"></i></button></a>
-=======
-    <a href="{{url('lista/emociones')}}"><button type="button" value="entrar" id="btn_entrar"><i class="fas fa-home"></i></button></a>
->>>>>>> 90541aa6c82367c2edbf6adf1b5f6689b3b4377f
 </div>
 </body>
 </html>

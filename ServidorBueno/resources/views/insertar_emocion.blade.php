@@ -22,7 +22,7 @@
         <!-- MENU -->
         <nav id="mainnav" role="navigation">
             <ul>
-                <li><a href="{{ route('lista.emociones') }}"><i class="fas fa-list-ul"></i><span>Lista de emociones</span></a></li>
+                <li><a href='{{ url("lista/emociones") }}'><i class="fas fa-list-ul"></i><span>Lista de emociones</span></a></li>
                 <li><a href='{{ url("login") }}'><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesion</span></a></li>
                 <li><a href='{{ url("index") }}'><i class="fas fa-home"></i><span>Inicio</span></a></li>
                 <li><a href=""><i class="fas fa-bars"></i></a></li>
@@ -40,10 +40,9 @@
     <h4>¿Qué actividad has realizado?</h4>
     <div class="row">
             <div class="col-12 col-md-12">
-                <form action="{{ route('emociones.guardar') }}" method="POST">
+                <form action="">
                     <input type="text" class="text-area col-12 col-md-12" placeholder="Describe la actividad que has realizado" id="descripcion">
                 <p id="descripcion-error" class="error"></p>
-                <input type="hidden" id="emocion_value" name="emocion_value">
                 </form>
             </div>
     </div>
@@ -73,14 +72,9 @@
         <p id="dia_emocion-error" class="error"></p> 
     </div>
     <div class="row justify-content-center">
-<<<<<<< HEAD
     <a href="{{url('fin')}}"><button type="button" class="form-control col-12" id="btn_next" name="button" >GUARDAR</button></a>
       <!-- <button type="button" class="form-control col-12" id="btn_next" name="button" required onclick="guardar()">GUARDAR</button><br> -->
     </div>
-=======
-        <button type="button" class="form-control col-12" id="btn_next" name="button" required onclick="guardar()">GUARDAR</button><br>
-     </div>
->>>>>>> 90541aa6c82367c2edbf6adf1b5f6689b3b4377f
 </div>
 </body>
 </html>
