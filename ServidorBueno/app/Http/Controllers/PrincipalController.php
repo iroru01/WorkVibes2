@@ -165,6 +165,39 @@ class PrincipalController extends Controller
         return Redirect::to('evento')->with('notice', 'El evento ha sido modificado correctamente.');
     }
 
+    //GUARDAR EMOCIONES 
+    public function guardarEmocion(Request $request)
+{
+    // Validar los datos del formulario
+    $request->validate([
+        'descripcion' => 'required|string|max:255',
+        'emocion' => 'required|string|max:255',
+        'dia_emocion' => 'required|date',
+        'id_emocion' => 'required|integer', // Asegúrate de validar el id_emocion
+    ]);
+
+    // Obtener el valor de la emoción seleccionada
+    $emocionValue = match ($request->emocion) {
+        'muy_triste' => 1,
+        'triste' => 2,
+        'contento' => 3,
+        'muy_contento' => 4,
+        default => null,
+    };
+
+    // Crear un nuevo evento con los datos proporcionados
+    Evento::create([
+        'descripcion' => $request->descripcion,
+        'emocion' => $emocionValue,
+        'dia_emocion' => $request->dia_emocion,
+        'id_emocion' => $request->id_emocion, // Asignar el id_emocion al evento
+    ]);
+
+    // Redirigir a alguna página de éxito o mostrar un mensaje de éxito
+    return redirect()->route('lista.emociones')->with('success', 'Emoción guardada correctamente');
+}
+///////////////////////////////7
+
 
     /**
      * Remove the specified resource from storage.

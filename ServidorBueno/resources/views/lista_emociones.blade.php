@@ -29,23 +29,88 @@
 </header>
 <!-- Barra de usuario -->
 <div class="barra_usuario">
-    Usuario: nombre user<!-- Reemplazar "Nombre del Usuario" con el nombre real del usuario que ha iniciado sesión -->
+    Usuario: {{ auth()->user()->nombre_user }}  <!-- Reemplazar "Nombre del Usuario" con el nombre real del usuario que ha iniciado sesión -->
 </div>
 <body>
 <br>
 <div class="container-fluid">
     <img src="{{ asset('imgs/lista_emociones_img.png') }}" class="img_lista_emociones" alt="img_lista_emociones">
-    <strong><p class="ml-5">**COLOCAR QUE NO EXISTEN EMOCIONES REGISTRADAS**</p></strong>
+    <br>
     <br>
     <div class="row ml-5">
         <div class="col-12 col-md-6">
-            <table id="stilo_tabla" class="col-12 col-md-8">
-                <strong><p>**fecha de registro de emocion**</p></strong>
-                <th><div class="col-12 col-md-12">Emocion <img src="{{ asset('imgs/emojis/feliz.png') }}" id="emoji_emociones" alt=""></div></th>
-                <tr>
-                    <td>AQUI TEXTO DE LA EMOCION</td>
-                </tr>
-            </table>
+            <?php if (isset($evento) && count($evento) > 0 || isset($otrasEmociones) && count($otrasEmociones) > 0): ?>
+                <table id="stilo_tabla" class="col-12 col-md-8">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Emoción</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (isset($evento) && count($evento) > 0)
+                            @foreach ($evento as $emocion)
+                                <tr>
+                                    <td>{{ $emocion->dia_emocion }}</td>
+                                    <td>
+                                        @switch ($emocion->emocion)
+                                            @case (1)
+                                                Muy triste
+                                                @break
+                                            @case (2)
+                                                Triste
+                                                @break
+                                            @case (3)
+                                                Contento
+                                                @break
+                                            @case (4)
+                                                Muy contento
+                                                @break
+                                        @endswitch
+                                    </td>
+                                    <td>{{ $emocion->descripcion }}</td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="3">No hay emociones registradas.</td>
+                            </tr>
+                        @endif
+                        
+                        @if (isset($otrasEmociones) && count($otrasEmociones) > 0)
+                            @foreach ($otrasEmociones as $otraEmocion)
+                                <tr>
+                                    <td>{{ $otraEmocion->dia_emocion }}</td>
+                                    <td>
+                                        @switch ($otraEmocion->emocion)
+                                            @case (1)
+                                                Muy triste
+                                                @break
+                                            @case (2)
+                                                Triste
+                                                @break
+                                            @case (3)
+                                                Contento
+                                                @break
+                                            @case (4)
+                                                Muy contento
+                                                @break
+                                        @endswitch
+                                    </td>
+                                    <td>{{ $otraEmocion->descripcion }}</td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="3">No hay otras emociones registradas.</td>
+                            </tr>
+                        @endif
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <h5>La lista de emociones está vacía.</h5>
+            <?php endif; ?>
         </div>
         <div class="col-12 col-md-6"><br>
             <div class="row">

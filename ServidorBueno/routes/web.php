@@ -23,6 +23,11 @@ Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emoci
 Route::get('/crear-usuario', [PrincipalController::class, 'formularioCrear'])->name('crear.usuario');
 Route::post('/guardar-usuario', [PrincipalController::class, 'guardar'])->name('guardar.usuario');
 
+//GUARDAR EMOCIONES
+Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emociones');
+Route::post('/emociones/guardar', [PrincipalController::class, 'guardarEmocion'])->name('emociones.guardar');
+
+
 /*index*/
 Route::get('/', function () {
     return view('welcome');

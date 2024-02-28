@@ -41,4 +41,52 @@ function guardar() {
     if (descripcionValue.trim() !== "" && emocionesSeleccionadas.length > 0 && diaEmocionValue.trim() !== "" && diaEmocionValue <= fechaActual) {
         window.location.href = "fin.html"; 
     }
+
+    if (
+      descripcionValue.trim() !== "" &&
+      emocionesSeleccionadas.length > 0 &&
+      diaEmocionValue.trim() !== "" &&
+      diaEmocionValue <= fechaActual
+    ) {
+      guardarEmocion(descripcionValue, emocionValue, diaEmocionValue); // Llama a la función guardarEmocion()
+    }
+  }
+  
+  function seleccion_Emoji(elemento) {
+    var emocion = elemento.value;
+    document.getElementById("emocion_value").value = emocion;
+    var emojis = document.getElementsByClassName("btn_emojis");
+    for (var i = 0; i < emojis.length; i++) {
+        emojis[i].classList.remove("btn_emojis_selected");
+    }
+    elemento.classList.add("btn_emojis_selected");
+}
+  
+  function guardarEmocion(descripcion, emocion, dia_emocion) {
+    // Envía los datos al servidor utilizando fetch o XMLHttpRequest
+    const formData = new FormData();
+    formData.append("descripcion", descripcion);
+    formData.append("emocion", emocion);
+    formData.append("dia_emocion", dia_emocion);
+  
+    fetch("insertar_emocion.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        if (data === "success") {
+          alert("Emoción guardada correctamente.");
+          window.location.href = "fin";
+        } else {
+          alert("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
+      });
+
+
+    
 }

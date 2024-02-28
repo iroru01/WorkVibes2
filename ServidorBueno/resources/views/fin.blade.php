@@ -24,7 +24,7 @@
     <br>
     <h4>¡¡ NOS HAN LLEGAGO TUS EMOCIONES !!</h4>
     <img src="imgs/tick_azul.png" class="img_tickAzul" alt=""> 
-    <a href="lista_emociones.html"><button type="button" value="entrar" id="btn_entrar"><i class="fas fa-home"></i></button></a>
+    <a href="lista/emociones"><button type="button" value="entrar" id="btn_entrar"><i class="fas fa-home"></i></button></a>
 </div>
 </body>
 </html>

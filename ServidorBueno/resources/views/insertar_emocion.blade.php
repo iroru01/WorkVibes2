@@ -31,7 +31,7 @@
     </header>
     <!-- Barra de usuario -->
     <div class="barra_usuario">
-        Usuario: Nombre del Usuario <!-- Reemplazar "Nombre del Usuario" con el nombre real del usuario que ha iniciado sesión -->
+        Usuario: {{ auth()->user()->nombre_user }}  <!-- Reemplazar "Nombre del Usuario" con el nombre real del usuario que ha iniciado sesión -->
     </div>
 <body>
 <br>
@@ -72,7 +72,8 @@
         <p id="dia_emocion-error" class="error"></p> 
     </div>
     <div class="row justify-content-center">
-       <button type="button" class="form-control col-12" id="btn_next" name="button" required onclick="guardar()">GUARDAR</button><br>
+    <a href="{{url('fin')}}"><button type="button" class="form-control col-12" id="btn_next" name="button" >GUARDAR</button></a>
+      <!-- <button type="button" class="form-control col-12" id="btn_next" name="button" required onclick="guardar()">GUARDAR</button><br> -->
     </div>
 </div>
 </body>
