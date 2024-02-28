@@ -29,7 +29,7 @@
 </header>
 <!-- Barra de usuario -->
 <div class="barra_usuario">
-    Usuario: nombre user<!-- Reemplazar "Nombre del Usuario" con el nombre real del usuario que ha iniciado sesión -->
+    Usuario: {{ auth()->user()->nombre_user }}  <!-- Reemplazar "Nombre del Usuario" con el nombre real del usuario que ha iniciado sesión -->
 </div>
 <body>
 <br>

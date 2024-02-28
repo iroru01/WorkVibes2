@@ -22,7 +22,7 @@
         <!-- MENU -->
         <nav id="mainnav" role="navigation">
             <ul>
-                <li><a href="{{ route('lista.emociones') }}"><i class="fas fa-list-ul"></i><span>Lista de emociones</span></a></li>
+                <li><a href='{{ url("lista/emociones") }}'><i class="fas fa-list-ul"></i><span>Lista de emociones</span></a></li>
                 <li><a href='{{ url("login") }}'><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesion</span></a></li>
                 <li><a href='{{ url("index") }}'><i class="fas fa-home"></i><span>Inicio</span></a></li>
                 <li><a href=""><i class="fas fa-bars"></i></a></li>
@@ -31,7 +31,7 @@
     </header>
     <!-- Barra de usuario -->
     <div class="barra_usuario">
-        Usuario: Nombre del Usuario <!-- Reemplazar "Nombre del Usuario" con el nombre real del usuario que ha iniciado sesión -->
+        Usuario: {{ auth()->user()->nombre_user }}  <!-- Reemplazar "Nombre del Usuario" con el nombre real del usuario que ha iniciado sesión -->
     </div>
 <body>
 <br>
@@ -40,10 +40,9 @@
     <h4>¿Qué actividad has realizado?</h4>
     <div class="row">
             <div class="col-12 col-md-12">
-                <form action="{{ route('emociones.guardar') }}" method="POST">
+                <form action="">
                     <input type="text" class="text-area col-12 col-md-12" placeholder="Describe la actividad que has realizado" id="descripcion">
                 <p id="descripcion-error" class="error"></p>
-                <input type="hidden" id="emocion_value" name="emocion_value">
                 </form>
             </div>
     </div>
@@ -73,8 +72,9 @@
         <p id="dia_emocion-error" class="error"></p> 
     </div>
     <div class="row justify-content-center">
-        <button type="button" class="form-control col-12" id="btn_next" name="button" required onclick="guardar()">GUARDAR</button><br>
-     </div>
+    <a href="{{url('fin')}}"><button type="button" class="form-control col-12" id="btn_next" name="button" >GUARDAR</button></a>
+      <!-- <button type="button" class="form-control col-12" id="btn_next" name="button" required onclick="guardar()">GUARDAR</button><br> -->
+    </div>
 </div>
 </body>
 </html>

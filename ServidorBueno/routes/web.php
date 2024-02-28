@@ -2,11 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
-<<<<<<< HEAD
-use Illuminate\Support\Facades\Auth;
-=======
 use App\Http\Controllers\LoginController;
->>>>>>> 6da1508d7cea541e7181fd0473189c415d28feac
 
 /*
 |--------------------------------------------------------------------------
@@ -18,22 +14,24 @@ use App\Http\Controllers\LoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+<<<<<<< HEAD
+=======
+/*crear usuario*/
+Route::post('/usuarios/store', [PrincipalController::class, 'store'])->name('usuarios.store');
+Route::get('/register', [PrincipalController::class, 'create'])->name('usuarios.create');
+Route::get('/lista/emociones', [PrincipalController::class, 'listaEmociones'])->name('lista.emociones');
+Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emociones');
+>>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
 
-/* Rutas para el controlador PrincipalController */
-
-/* Rutas para el registro y gestión de usuarios */
 Route::get('/crear-usuario', [PrincipalController::class, 'formularioCrear'])->name('crear.usuario');
 Route::post('/guardar-usuario', [PrincipalController::class, 'guardar'])->name('guardar.usuario');
 
-/* Rutas para las emociones */
-Route::post('/lista/emociones', [PrincipalController::class, 'listaEmociones'])->name('lista.emociones.post');
-Route::get('/lista/emociones', [PrincipalController::class, 'listaEmociones'])->name('lista.emociones');
-
+//GUARDAR EMOCIONES
 Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emociones');
 Route::post('/emociones/guardar', [PrincipalController::class, 'guardarEmocion'])->name('emociones.guardar');
 
-/* Ruta para el inicio de sesión */
 
+<<<<<<< HEAD
 Route::get('/login', function () {
     return view('login');
 })->name('login');
@@ -44,6 +42,9 @@ Route::post('/login', [PrincipalController::class, 'login'])->name('login');
 
 
 /* Rutas adicionales */
+=======
+/*index*/
+>>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
 Route::get('/', function () {
     return view('welcome');
 });
@@ -52,10 +53,18 @@ Route::get('/index', function () {
     return view('index');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
+
 Route::get('/registro', function () {
     return view('registro');
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
 Route::get('/fin', function () {
     return view('fin');
 }); 

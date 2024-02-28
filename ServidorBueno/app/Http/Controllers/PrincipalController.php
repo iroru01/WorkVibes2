@@ -3,18 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Evento;
 use App\Models\Emocion;
 use Illuminate\Support\Facades\Redirect;
+=======
+use App\Models\User;
+
+>>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
 
 class PrincipalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+    //Hay que crear un metodo register que será un store que es donde guardaremos toda la info y de aqui nos redirigirá a una funcion que es create para crear los usuarios y guardar los usuarios en la base de datos
+    
     public function index()
     {
         //
@@ -25,6 +33,7 @@ class PrincipalController extends Controller
      */
     public function create()
     {
+        
         // Opcional: redirigir a alguna página o devolver una respuesta
         return redirect()->route('registro');
     }
@@ -35,42 +44,42 @@ class PrincipalController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request) 
-    {  
-    // Validar los datos del formulario
-    $request->validate([
-        'nombre_user' => 'required|string|max:255',
-        'dni' => 'required|string|max:255',
-        'nombre' => 'required|string|max:255',
-        'apellidos' => 'required|string|max:255',
-        'telefono' => 'required|string|max:255',
-        'direccion' => 'required|string|max:255',
-        'password' => 'required|string|max:255', // Cambiado de 'contraseña' a 'password'
-        'puesto' => 'required|string|max:255',
-        'incorporacion' => 'required|date',
-        'id_departamento' => 'nullable|integer',
-        'id_evento' => 'nullable|integer',
-        'estado' => 'nullable|string|max:255',
-    ]);
-
-    // Create a new user without hashing the password
-    $user = User::create([
-        'nombre_user' => $request->nombre_user,
-        'dni' => $request->dni,
-        'nombre' => $request->nombre,
-        'apellidos' => $request->apellidos,
-        'telefono' => $request->telefono,
-        'direccion' => $request->direccion,
-        'password' => $request->password, // Use the plain text password
-        'puesto' => $request->puesto,
-        'incorporacion' => $request->incorporacion,
-        'id_departamento' => $request->id_departamento,
-        'id_evento' => $request->id_evento,
-        'estado' => $request->estado,
-    ]);
-
-    // Opcional: redirigir a alguna página o devolver una respuesta
-    return redirect()->route('lista_emociones');
-}
+    {
+        // Validar los datos del formulario
+        $request->validate([
+            'nombre_user' => 'required|string|max:255',
+            'dni' => 'required|string|max:255',
+            'nombre' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'telefono' => 'required|string|max:255',
+            'direccion' => 'required|string|max:255',
+            'contraseña' => 'required|string|max:255',
+            'puesto' => 'required|string|max:255',
+            'incorporacion' => 'required|date',
+            'id_departamento' => 'nullable|integer',
+            'id_evento' => 'nullable|integer',
+            'estado' => 'nullable|string|max:255',
+        ]);
+    
+        // Crear un nuevo usuario con los datos proporcionados
+        $user = User::create([
+            'nombre_user' => $request->nombre_user,
+            'dni' => $request->dni,
+            'nombre' => $request->nombre,
+            'apellidos' => $request->apellidos,
+            'telefono' => $request->telefono,
+            'direccion' => $request->direccion,
+            'contraseña' => $request->contraseña, 
+            'puesto' => $request->puesto,
+            'incorporacion' => $request->incorporacion,
+            'id_departamento' => $request->id_departamento,
+            'id_evento' => $request->id_evento,
+            'estado' => $request->estado,
+        ]);
+    
+        // Opcional: redirigir a alguna página o devolver una respuesta
+        return redirect()->route('lista_emociones');
+    }
 
 
     public function formularioCrear()
@@ -79,23 +88,24 @@ class PrincipalController extends Controller
     }
 
     public function guardar(Request $request)
-{
-    // Validar los datos del formulario
-    $request->validate([
-        'nombre_user' => 'required|string|max:255',
-        'dni' => 'required|string|max:255',
-        'nombre' => 'required|string|max:255',
-        'apellidos' => 'required|string|max:255',
-        'telefono' => 'required|string|max:255',
-        'direccion' => 'required|string|max:255',
-        'contraseña' => 'required|string|max:255',
-        'puesto' => 'required|string|max:255',
-        'incorporacion' => 'required|date',
-        'id_departamento' => 'nullable|integer',
-        'id_evento' => 'nullable|integer',
-        'estado' => 'nullable|string|max:255',
-    ]);
+    {
+        // Validar los datos del formulario
+        $request->validate([
+            'nombre_user' => 'required|string|max:255',
+            'dni' => 'required|string|max:255',
+            'nombre' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'telefono' => 'required|string|max:255',
+            'direccion' => 'required|string|max:255',
+            'contraseña' => 'required|string|max:255',
+            'puesto' => 'required|string|max:255',
+            'incorporacion' => 'required|date',
+            'id_departamento' => 'nullable|integer',
+            'id_evento' => 'nullable|integer',
+            'estado' => 'nullable|string|max:255',
+        ]);
 
+<<<<<<< HEAD
     // Create a new user with the plain text password
     $user = User::create([
         'nombre_user' => $request->nombre_user,
@@ -115,20 +125,32 @@ class PrincipalController extends Controller
     // Redirigir a alguna página de éxito o mostrar un mensaje de éxito
     return redirect()->route('lista.emociones')->with('success', 'Usuario creado correctamente');
 }
+=======
+        // Guardar el usuario en la base de datos
+        User::create([
+            'email' => $request -> nombre_user,
+            'nombre_user' => $request->nombre_user,
+            'dni' => $request->dni,
+            'nombre' => $request->nombre,
+            'apellidos' => $request->apellidos,
+            'telefono' => $request->telefono,
+            'direccion' => $request->direccion,
+            'contraseña' => $request->contraseña, 
+            'puesto' => $request->puesto,
+            'incorporacion' => $request->incorporacion,
+            'id_departamento' => $request->id_departamento,
+            'id_evento' => $request->id_evento,
+            'estado' => $request->estado
+        ]);
+>>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
 
+        // Redirigir a alguna página de éxito o mostrar un mensaje de éxito
+        return redirect()->route('lista.emociones')->with('success', 'Usuario creado correctamente');
+    }
 
     public function listaEmociones()
     {
-        // Recuperar todas las emociones de la base de datos
-        $emociones = Evento::all();
-
-        // Pasar las emociones a la vista
-        return view('lista_emociones', ['emociones' => $emociones]);
-    }
-
-    public function Emociones()
-    {
-        return view('insertar_emocion');
+        return view('lista_emociones');
     }
 
     /**
@@ -142,6 +164,7 @@ class PrincipalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+   
     public function edit(string $id)
     {
         $evento = Evento::find($id);
@@ -150,42 +173,25 @@ class PrincipalController extends Controller
         ]);
     }
 
+
     /**
      * Update the specified resource in storage.
      */
+
+
     public function update(Request $request, string $id)
     {
-        // Encontrar el evento
         $evento = Evento::find($id);
-    
-        // Encontrar la emoción asociada con el evento
-        $emocion = Emocion::find($evento->emocion_id);
-    
-        // Actualizar los datos de la emoción
-        $emocion->nombre_evento = $request->nombre_evento;
-        $emocion->fecha = $request->fecha;
-        $emocion->emocion = $request->emocion;
-        $emocion->save();
-    
-        // Actualizar los datos del evento si es necesario
         $evento->nombre_evento = $request->nombre_evento;
         $evento->fecha = $request->fecha;
+        $evento->emocion = $request->emocion;
         $evento->save();
-    
+
+
         return Redirect::to('evento')->with('notice', 'El evento ha sido modificado correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $evento = Evento::findOrFail($id);
-        $evento->delete();
-
-        return redirect()->route('lista_emociones')->with('notice', 'El evento ha sido eliminado correctamente.')->with('noticeType', 'success');
-    }
-
+    //GUARDAR EMOCIONES 
     public function guardarEmocion(Request $request)
 {
     // Validar los datos del formulario
@@ -215,29 +221,28 @@ class PrincipalController extends Controller
 
     // Redirigir a alguna página de éxito o mostrar un mensaje de éxito
     return redirect()->route('lista.emociones')->with('success', 'Emoción guardada correctamente');
+<<<<<<< HEAD
     }
-
-    public function login(Request $request)
-    {
-        // Validate the form data
-        $request->validate([
-            'nombre_user' => 'required|string|max:255',
-            'password' => 'required|string|max:255',
-        ]);
-    
-        // Define the credentials array
-        $credentials = $request->only('nombre_user', 'password');
-        
-        // Attempt to log the user in
-        if (Auth::attempt($credentials)) {
-            // Redirect to the dashboard if the login is successful
-            return redirect()->intended('/lista.emociones');
-        } else {
-            // Redirect back to the login form with an error message if the login fails
-            return back()->withErrors([
-                'nombre_user' => 'Estas credenciales no coinciden con nuestros registros.',
-            ]);
-        }
-    }
-    
+=======
 }
+///////////////////////////////7
+>>>>>>> 63ad0095b0c0052792dfc85d1ba30541ec2d1d9b
+
+
+    /**
+     * Remove the specified resource from storage.
+     */
+
+
+    public function destroy(string $id)
+    {
+    $evento = Evento::findOrFail($id);
+    $evento->delete();
+
+
+    return redirect()->route('lista_emociones')->with('notice', 'El evento ha sido eliminado correctamente.')->with('noticeType', 'success');
+    }
+}
+
+
+
