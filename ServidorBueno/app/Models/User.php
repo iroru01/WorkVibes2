@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,9 +17,18 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'nombre_user',
+        'dni',
+        'nombre',
+        'apellidos',
+        'telefono',
+        'direccion',
         'password',
+        'puesto',
+        'incorporacion',
+        'id_departamento',
+        'id_evento',
+        'estado',
     ];
 
     /**
@@ -33,13 +41,38 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'nombre_user_verified_at' => 'datetime',
     ];
+    
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'usuarios'; // Reemplaza 'usuarios' por el nombre real de tu tabla de usuarios
+
+    // Define relaciones con otras tablas
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class, 'id_departamento');
+    }
+
+    public function evento()
+    {
+        return $this->belongsTo(Evento::class, 'id_evento');
+    }
+
+    // Indicar que el campo 'nombre_user' se utilizará como el campo de nombre de usuario para autenticación
+    public function username()
+    {
+        return 'nombre_user';
+    }
 }
+
