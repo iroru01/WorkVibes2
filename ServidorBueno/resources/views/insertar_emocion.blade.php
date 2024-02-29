@@ -50,16 +50,16 @@
     <br>
     <div class="row justify-content-center">
         <div class="col-6 col-md-2 mb-3">
-            <button class="btn_emojis" onclick="seleccion_Emoji(this)" value="muy_triste" name="emocion"><img src="imgs/emojis/muy_triste.png" class="emojis" alt="Muy Triste"><p><br>MUY TRISTE</p></button>
+            <button type="button" class="btn_emojis" onclick="seleccion_Emoji(this)" value="muy_triste" name="emocion"><img src="imgs/emojis/muy_triste.png" class="emojis" alt="Muy Triste"><p><br>MUY TRISTE</p></button>
         </div>
         <div class="col-6 col-md-2 mb-3">
-            <button class="btn_emojis" onclick="seleccion_Emoji(this)"value="triste" ><img src="imgs/emojis/triste.png" class="emojis" alt="Triste"><p><br>TRISTE</p></button>
+            <button type="button" class="btn_emojis" onclick="seleccion_Emoji(this)"value="triste" ><img src="imgs/emojis/triste.png" class="emojis" alt="Triste"><p><br>TRISTE</p></button>
         </div>
         <div class="col-6 col-md-2 mb-3">
-            <button class="btn_emojis" onclick="seleccion_Emoji(this)" value="contento"><img src="imgs/emojis/cotnento.png"  class="emojis" alt="Contento"><p><br>CONTENTO</p></button>
+            <button type="button" class="btn_emojis" onclick="seleccion_Emoji(this)" value="contento"><img src="imgs/emojis/cotnento.png"  class="emojis" alt="Contento"><p><br>CONTENTO</p></button>
         </div>
         <div class="col-6 col-md-2 mb-3">
-            <button class="btn_emojis" onclick="seleccion_Emoji(this)" value="muy_contento"><img src="imgs/emojis/feliz.png" class="emojis" alt="Muy Contento"><p><br>MUY CONTENTO</p></button>
+            <button type="button" class="btn_emojis" onclick="seleccion_Emoji(this)" value="muy_contento"><img src="imgs/emojis/feliz.png" class="emojis" alt="Muy Contento"><p><br>MUY CONTENTO</p></button>
         </div>
     </div>
     <p id="emociones-error" class="error"></p>
@@ -72,7 +72,7 @@
         <p id="dia_emocion-error" class="error"></p> 
     </div>
     <div class="row justify-content-center">
-    <a href="{{url('fin')}}"><button type="button" class="form-control col-12" id="btn_next" name="button" >GUARDAR</button></a>
+    <a href="{{route('fin')}}"><button type="submit" class="form-control col-12" id="btn_next" name="button" >GUARDAR</button></a>
       <!-- <button type="button" class="form-control col-12" id="btn_next" name="button" required onclick="guardar()">GUARDAR</button><br> -->
     </div>
 </div>

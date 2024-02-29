@@ -63,30 +63,33 @@ function guardar() {
 }
   
   function guardarEmocion(descripcion, emocion, dia_emocion) {
-    // Envía los datos al servidor utilizando fetch o XMLHttpRequest
+    // Envía los datos al servidor utilizando fetch
     const formData = new FormData();
     formData.append("descripcion", descripcion);
     formData.append("emocion", emocion);
     formData.append("dia_emocion", dia_emocion);
   
-    fetch("insertar_emocion.php", {
+    fetch("{{ route('emociones.guardar') }}", { // Utiliza la ruta de Laravel para guardar la emoción
       method: "POST",
       body: formData,
     })
-      .then((response) => response.text())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
+        }
+        return response.text();
+      })
       .then((data) => {
+        // Laravel debería devolver "success" si la emoción se guarda correctamente
         if (data === "success") {
           alert("Emoción guardada correctamente.");
-          window.location.href = "fin";
+          // Laravel se encargará de redirigir a la página de éxito (fin)
         } else {
-          alert("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
+          throw new Error("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
-        alert("Error al guardar la emoción. Por favor, inténtalo de nuevo.");
+        console.error("Error:", error.message);
+        alert(error.message);
       });
-
-
-    
 }

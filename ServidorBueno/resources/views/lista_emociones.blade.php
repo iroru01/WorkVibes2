@@ -114,19 +114,16 @@
         </div>
         <div class="col-12 col-md-6"><br>
             <div class="row">
-                <div class="col-12 col-md-3">
+                <div class="col-4 col-md-3">
                     <!--ELIMINAR HREF-->
-                    <a href="{{url('emociones')}}"><button class="boton_anadir mb-3" id="anadir" name="anadir">AÑADIR</button></a>
-                    <a href="{{url('emociones')}}"><img src="{{ asset('imgs/icons/aniadir.png') }}" id="img_aniadir" class="btns_emociones" alt="">
+                    <a href="{{url('emociones')}}"><img src="{{ asset('imgs/icons/mas_azul.svg') }}" id="img_aniadir" class="btns_emociones" alt="añadir" title="añadir">
                     </a>
                 </div>
-                <div class="col-12 col-md-3">
-                    <button class="boton_anadir mb-2">EDITAR</button>
-                    <img src="{{ asset('imgs/icons/edit_btn.png') }}" id="img_editar" class="btns_emociones" alt="">
+                <div class="col-4 col-md-3">
+                   <a href=""><img src="{{ asset('imgs/icons/papel.svg') }}" id="img_editar" class="btns_emociones" alt="editar" title="editar"></a> 
                 </div>
-                <div class="col-12 col-md-3">
-                    <button class="boton_anadir mb-2">ELIMINAR</button>
-                    <img src="{{ asset('imgs/icons/papelera.png') }}" id="img_eliminar" class="btns_emociones" alt="img_eliminar">
+                <div class="col-4 col-md-3">
+                   <a href=""><img src="{{ asset('imgs/icons/basura.svg') }}" id="img_eliminar" class="btns_emociones" alt="eliminar" title="eliminar"></a> 
                 </div>
             </div>
         </div>

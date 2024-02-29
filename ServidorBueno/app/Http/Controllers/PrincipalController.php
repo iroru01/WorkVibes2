@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Evento;
+use Illuminate\Support\Facades\Redirect;
 
 class PrincipalController extends Controller
 {
@@ -165,37 +166,38 @@ class PrincipalController extends Controller
         return Redirect::to('evento')->with('notice', 'El evento ha sido modificado correctamente.');
     }
 
-    //GUARDAR EMOCIONES 
-    public function guardarEmocion(Request $request)
-{
-    // Validar los datos del formulario
-    $request->validate([
-        'descripcion' => 'required|string|max:255',
-        'emocion' => 'required|string|max:255',
-        'dia_emocion' => 'required|date',
-        'id_emocion' => 'required|integer', // Asegúrate de validar el id_emocion
-    ]);
-
-    // Obtener el valor de la emoción seleccionada
-    $emocionValue = match ($request->emocion) {
-        'muy_triste' => 1,
-        'triste' => 2,
-        'contento' => 3,
-        'muy_contento' => 4,
-        default => null,
-    };
-
-    // Crear un nuevo evento con los datos proporcionados
-    Evento::create([
-        'descripcion' => $request->descripcion,
-        'emocion' => $emocionValue,
-        'dia_emocion' => $request->dia_emocion,
-        'id_emocion' => $request->id_emocion, // Asignar el id_emocion al evento
-    ]);
-
-    // Redirigir a alguna página de éxito o mostrar un mensaje de éxito
-    return redirect()->route('lista.emociones')->with('success', 'Emoción guardada correctamente');
-}
+        // Guardar una emoción
+        public function guardarEmocion(Request $request)
+        {
+            // Validar los datos del formulario
+            $request->validate([
+                'descripcion' => 'required|string|max:255',
+                'emocion' => 'required|string|max:255',
+                'dia_emocion' => 'required|date',
+                'id_emocion' => 'required|integer',
+            ]);
+        
+            // Obtener el valor de la emoción seleccionada
+            $emocionValue = match ($request->emocion) {
+                'muy_triste' => 1,
+                'triste' => 2,
+                'contento' => 3,
+                'muy_contento' => 4,
+                default => null,
+            };
+        
+            // Crear un nuevo evento con los datos proporcionados
+            Evento::create([
+                'descripcion' => $request->descripcion,
+                'emocion' => $emocionValue,
+                'dia_emocion' => $request->dia_emocion,
+                'id_emocion' => $request->id_emocion,
+            ]);
+        
+            // Redirigir a alguna página de éxito o mostrar un mensaje de éxito
+            return redirect()->route('fin')->with('success', 'Emoción guardada correctamente');
+        }
+        
 ///////////////////////////////7
 
 
@@ -211,6 +213,16 @@ class PrincipalController extends Controller
 
 
     return redirect()->route('lista_emociones')->with('notice', 'El evento ha sido eliminado correctamente.')->with('noticeType', 'success');
+    }
+
+    //FIN
+    public function fin()
+    {
+        // Aquí puedes agregar la lógica necesaria para obtener los datos que deseas mostrar en la vista 'fin'
+        // Por ejemplo, podrías obtener la lista de emociones guardadas y pasarla a la vista
+
+        // Luego, puedes retornar la vista 'fin' con los datos necesarios
+        return view('fin');
     }
 }
 
