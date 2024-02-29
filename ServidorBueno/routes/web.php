@@ -27,7 +27,14 @@ Route::post('/guardar-usuario', [PrincipalController::class, 'guardar'])->name('
 Route::get('/emociones', [PrincipalController::class, 'Emociones'])->name('emociones');
 Route::post('/emociones/guardar', [PrincipalController::class, 'guardarEmocion'])->name('emociones.guardar');
 
+<<<<<<< HEAD
 Route::post('/fin', [PrincipalController::class, 'guardarEmocion'])->name('fin');
+=======
+//FIN 
+Route::post('/fin', [PrincipalController::class, 'fin'])->name('fin');
+Route::get('/fin', [PrincipalController::class, 'fin'])->name('fin');
+
+>>>>>>> 0afd784f0ebfe68ddba7e885726ba2fdc13ac4d9
 /*index*/
 Route::get('/', function () {
     return view('welcome');

@@ -10,9 +10,11 @@ class Evento extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre_evento',
-        //'tiempo',
-        'fecha',
+        'descripcion',
         'emocion',
+        'dia_emocion',
+        'id_emocion',
     ];
+    
+    protected $table = 'evento';
 }
