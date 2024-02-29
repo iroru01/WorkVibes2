@@ -11,10 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     //
-    public function register(Request $request){
-
-    }
-
     public function login(Request $request){
 
         $credentials = $request->only('nombre_user', 'contraseña');

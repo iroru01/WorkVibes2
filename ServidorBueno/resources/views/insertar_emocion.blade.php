@@ -37,11 +37,13 @@
 <br>
 <br>
 <div class="container">
+<form id="form3" method="POST" action="{{ route('fin') }}">
+ @csrf
     <h4>¿Qué actividad has realizado?</h4>
     <div class="row">
             <div class="col-12 col-md-12">
                 <form action="">
-                    <input type="text" class="text-area col-12 col-md-12" placeholder="Describe la actividad que has realizado" id="descripcion">
+                    <input type="text" name="nombre_evento" class="text-area col-12 col-md-12" placeholder="Describe la actividad que has realizado" id="descripcion">
                 <p id="descripcion-error" class="error"></p>
                 </form>
             </div>
@@ -68,7 +70,7 @@
         <h4>¿Qué día realizaste la actividad?</h4>
     </div>
     <div class="row justify-content-center">
-        <input type="date" class="form-control" id="dia_emocion">
+        <input type="date" name="fecha" class="form-control" id="dia_emocion">
         <p id="dia_emocion-error" class="error"></p> 
     </div>
     <div class="row justify-content-center">

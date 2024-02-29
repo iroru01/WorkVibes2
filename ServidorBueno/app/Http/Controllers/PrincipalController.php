@@ -170,10 +170,10 @@ class PrincipalController extends Controller
 {
     // Validar los datos del formulario
     $request->validate([
-        'descripcion' => 'required|string|max:255',
-        'emocion' => 'required|string|max:255',
-        'dia_emocion' => 'required|date',
-        'id_emocion' => 'required|integer', // Asegúrate de validar el id_emocion
+        'nombre_evento' => 'required|string|max:255',
+        'fecha' => 'required|date',
+        'emocion' =>  'required|string|max:255',
+        
     ]);
 
     // Obtener el valor de la emoción seleccionada
@@ -186,17 +186,19 @@ class PrincipalController extends Controller
     };
 
     // Crear un nuevo evento con los datos proporcionados
-    Evento::create([
-        'descripcion' => $request->descripcion,
-        'emocion' => $emocionValue,
-        'dia_emocion' => $request->dia_emocion,
-        'id_emocion' => $request->id_emocion, // Asignar el id_emocion al evento
+    $AAA= Evento::create([
+        'nombre_evento' => $request->nombre_evento,
+        'fecha' => $request->fecha,
+        'emocion' => $request -> emocion
     ]);
-
+    return $AAA;
     // Redirigir a alguna página de éxito o mostrar un mensaje de éxito
-    return redirect()->route('lista.emociones')->with('success', 'Emoción guardada correctamente');
+    return redirect()->route('fin')->with('success', 'Emoción guardada correctamente');
 }
-///////////////////////////////7
+
+
+
+///////////////////////////////
 
 
     /**
